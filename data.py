@@ -26,7 +26,7 @@ elif a=="該当レース":
 elif a=="レース賞別":
   y=st.selectbox("レース賞選択",("G1","G2","G3"))
   y=int(y.replace("G",""))
-  grade=horse_all[(horse_all["Racw_Grade"]==y)]
+  grade=horse_all[(horse_all["Race_Grade"]==y)]
   X=grade.drop(["Race","Race_Grade","Win","Quinella","Show"],axis=1)
   Y1=grade["Win"]
   Y2=grade["Quinella"]
