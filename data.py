@@ -8,5 +8,5 @@ horse_all["pop*class"]=horse_all["P_popular"]*horse_all["P_class-Class"]
 st.write("全レースデータ")
 st.write(horse_all)
 st.write("G1レースデータ")
-horse_g1=horse_all[(all["Race_Grade"]==1)]
+horse_g1=horse_all[(horse_all["Race_Grade"]==1)]
 st.write(horse_g1)
