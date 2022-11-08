@@ -2,17 +2,34 @@ import streamlit as st
 import pandas as pd
 st.title("競馬")
 a=st.radio("データ選択", ("全レース", "レース賞別", "該当レース")) #第一引数：リスト名（選択肢群の上に表示）、第二引数：選択肢
-if a=="該当レース":
-  y=st.selectbox("レース選択",("宝塚記念","スプリンターズS","秋華賞"))
-elif a=="レース賞別":
-  y=st.selectbox("レース賞選択",("G1","G2","G3"))
 
 horse_all=pd.read_csv("Horse_Race.csv")
 horse_all=horse_all.fillna(0)
 horse_all["rank*class"]=horse_all["P_rank"]*horse_all["P_class-Class"]
 horse_all["pop*class"]=horse_all["P_popular"]*horse_all["P_class-Class"]
-st.write("全レースデータ")
-st.write(horse_all)
-st.write("G1レースデータ")
-horse_g1=horse_all[(horse_all["Race_Grade"]==1)]
-st.write(horse_g1)
+
+if a=="全レース":
+  X=horse_all.drop(["Race","Race_Grade","Win","Quinella","Show"],axis=1)
+  Y1=horse_all["Win"]
+  Y2=horse_all["Quinella"]
+  Y3=horse_all["Show"]
+elif a=="該当レース":
+  y=st.selectbox("レース選択(現在はエリザベス女王杯のみ)",("エリザベス女王杯"))
+  if y=="エリザベス女王杯":
+    b="Queen Elizabeth"
+  this=horse_all[horse_all["Race"].str.contains(b)]
+  X=this.drop(["Race","Race_Grade","Win","Quinella","Show"],axis=1)
+  Y1=this["Win"]
+  Y2=this["Quinella"]
+  Y3=this["Show"]
+  
+elif a=="レース賞別":
+  y=st.selectbox("レース賞選択",("G1","G2","G3"))
+  y=int(y.replace("G",""))
+  grade=horse_all[(horse_all["Racw_Grade"]==y)]
+  X=grade.drop(["Race","Race_Grade","Win","Quinella","Show"],axis=1)
+  Y1=grade["Win"]
+  Y2=grade["Quinella"]
+  Y3=grade["Show"]
+
+st.write(Y1)
