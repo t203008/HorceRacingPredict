@@ -1,5 +1,7 @@
 import streamlit as st
 import pandas as pd
+from sklearn.linear_model import LogisticRegression
+
 st.title("競馬")
 a=st.radio("データ選択", ("全レース", "レース賞別", "該当レース")) #第一引数：リスト名（選択肢群の上に表示）、第二引数：選択肢
 
@@ -32,4 +34,9 @@ elif a=="レース賞別":
   Y2=grade["Quinella"]
   Y3=grade["Show"]
 
-st.write(Y1)
+LR=LogisticRegression()
+LR.fit(X,Y1)
+LR.fit(X,Y2)
+LR.fit(X,Y3)
+
+st.write("coef",LR.coef_)
