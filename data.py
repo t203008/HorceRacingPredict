@@ -14,7 +14,7 @@ if a=="全レース":
   Y2=horse_all["Quinella"]
   Y3=horse_all["Show"]
 elif a=="該当レース":
-  y=st.selectbox("レース選択(現在はエリザベス女王杯のみ)",("エリザベス女王杯"))
+  y=st.selectbox("レース選択(現在はエリザベス女王杯のみ)",("天皇賞(秋)","エリザベス女王杯"))
   if y=="エリザベス女王杯":
     b="Queen Elizabeth"
   this=horse_all[horse_all["Race"].str.contains(b)]
