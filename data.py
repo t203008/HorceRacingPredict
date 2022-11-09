@@ -6,7 +6,7 @@ from sklearn.linear_model import LogisticRegression
 st.title("競馬")
 sample=pd.read_csv("Sample.csv")
 sample=sample.to_csv(index=False)  
-b64 = base64.b64encode(csv.encode()).decode()
+b64 = base64.b64encode(sample.encode()).decode()
 href = f'<a href="data:application/octet-stream;base64,{b64}" download="result.csv">download</a>'
 st.markdown(f"ダウンロードする {href}", unsafe_allow_html=True)
 
