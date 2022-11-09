@@ -23,6 +23,7 @@ pred=st.sidebar.file_uploader("CSVファイルをドラッグ&ドロップ", typ
 
 if pred is not None:
   predict=pd.read_csv(pred)
+  predict=predict.fillna(0)
   st.markdown("入力データの確認")
   st.dataframe(predict)
 
