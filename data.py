@@ -13,6 +13,8 @@ st.sidebar.markdown("下のdownloadをクリックしてSampleデータを入力
 st.sidebar.markdown(f"{href}", unsafe_allow_html=True)
 st.sidebar.markdown("入力例")
 st.sidebar.markdown("サイレンススズカの天皇賞(秋)に出る際の確率を調べたいとき")
+image=Image.open("スクリーンショット (506).png")
+st.sidebar.image(image,caption="サンプル",use_column_width=True)
 
 a=st.radio("データ選択", ("全レース", "レース賞別", "該当レース")) #第一引数：リスト名（選択肢群の上に表示）、第二引数：選択肢
 
