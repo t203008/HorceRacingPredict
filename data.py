@@ -11,6 +11,7 @@ href = f'<a href="data:application/octet-stream;base64,{b64}" download="result.c
 st.sidebar.markdown("### 1. データ入力")
 st.sidebar.markdown("下のdownloadをクリックしてSampleデータを入力してください")
 st.sidebar.markdown(f"{href}", unsafe_allow_html=True)
+st.sidebar.markdown("入力例")
 
 a=st.radio("データ選択", ("全レース", "レース賞別", "該当レース")) #第一引数：リスト名（選択肢群の上に表示）、第二引数：選択肢
 
