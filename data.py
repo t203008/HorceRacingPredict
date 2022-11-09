@@ -52,12 +52,6 @@ elif a=="レース賞別":
   Y1=grade["Win"]
   Y2=grade["Quinella"]
   Y3=grade["Show"]
-  
-if pred is not None:
-  predict=pd.read_csv(pred)
-  predict=predict.fillna(0)
-  st.markdown("入力データの確認")
-  st.dataframe(predict)
 
 st.write("未実装です")
 
@@ -68,4 +62,9 @@ LR1.fit(X,Y1)
 LR2.fit(X,Y2)
 LR3.fit(X,Y3)
 
-st.write(LR1.predict(predict))
+if pred is not None:
+  predict=pd.read_csv(pred)
+  predict=predict.fillna(0)
+  st.markdown("入力データの確認")
+  st.dataframe(predict)
+  st.write(LR1.predict(predict))
