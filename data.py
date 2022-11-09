@@ -14,7 +14,7 @@ st.sidebar.markdown("下のdownloadをクリックしてSampleデータを入力
 st.sidebar.markdown(f"{href}", unsafe_allow_html=True)
 st.sidebar.markdown("入力例")
 image=Image.open("スクリーンショット (506).png")
-
+st.sidebar.markdown("")
 st.sidebar.markdown("### 2. ファイルアップロード")
 st.sidebar.markdown("1で作成したcsvファイルをドラッグ&ドロップしてください")
 uploaded_file = st.sidebar.file_uploader("CSVファイルをドラッグ&ドロップ", type='csv', key='train')
