@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import base64
 from sklearn.linear_model import LogisticRegression
+from PIL import Image
 
 st.title("競馬")
 sample=pd.read_csv("Sample.csv")
