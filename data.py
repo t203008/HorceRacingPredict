@@ -4,7 +4,7 @@ import base64
 from sklearn.linear_model import LogisticRegression
 
 st.title("競馬")
-sample=read_csv("Sample.csv")
+sample=pd.read_csv("Sample.csv")
 sample=sample.to_csv(index=False)  
 b64 = base64.b64encode(csv.encode()).decode()
 href = f'<a href="data:application/octet-stream;base64,{b64}" download="result.csv">download</a>'
