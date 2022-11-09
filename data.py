@@ -67,4 +67,5 @@ LR3=LogisticRegression()
 LR1.fit(X,Y1)
 LR2.fit(X,Y2)
 LR3.fit(X,Y3)
-#st.write(LR1,LR2,LR3)
+
+st.write(LR1.predict(predict))
