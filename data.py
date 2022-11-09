@@ -1,8 +1,14 @@
 import streamlit as st
 import pandas as pd
+import base64
 from sklearn.linear_model import LogisticRegression
 
 st.title("競馬")
+sample=sample.to_csv(index=False)  
+b64 = base64.b64encode(csv.encode()).decode()
+href = f'<a href="data:application/octet-stream;base64,{b64}" download="result.csv">download</a>'
+st.markdown(f"ダウンロードする {href}", unsafe_allow_html=True)
+
 a=st.radio("データ選択", ("全レース", "レース賞別", "該当レース")) #第一引数：リスト名（選択肢群の上に表示）、第二引数：選択肢
 
 horse_all=pd.read_csv("Horse_Race.csv")
