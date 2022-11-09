@@ -19,7 +19,12 @@ st.sidebar.image(image,caption="サイレンススズカの天皇賞(秋)に出�
 st.sidebar.markdown("")
 st.sidebar.markdown("### 2. ファイルアップロード")
 st.sidebar.markdown("1で作成したcsvファイルをドラッグ&ドロップしてください")
-uploaded_file = st.sidebar.file_uploader("CSVファイルをドラッグ&ドロップ", type='csv', key='train')
+pred=st.sidebar.file_uploader("CSVファイルをドラッグ&ドロップ", type='csv', key='train')
+
+if pred is not None:
+  predict=pd.read_csv(pred)
+  st.markdown("入力データの確認")
+  st.dataframe(predict)
 
 a=st.radio("データ選択", ("全レース", "レース賞別", "該当レース")) #第一引数：リスト名（選択肢群の上に表示）、第二引数：選択肢
 
