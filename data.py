@@ -21,11 +21,6 @@ st.sidebar.markdown("### 2. ファイルアップロード")
 st.sidebar.markdown("1で作成したcsvファイルをドラッグ&ドロップしてください")
 pred=st.sidebar.file_uploader("CSVファイルをドラッグ&ドロップ", type='csv', key='train')
 
-if pred is not None:
-  predict=pd.read_csv(pred)
-  predict=predict.fillna(0)
-  st.markdown("入力データの確認")
-  st.dataframe(predict)
 
 a=st.radio("データ選択", ("全レース", "レース賞別", "該当レース")) #第一引数：リスト名（選択肢群の上に表示）、第二引数：選択肢
 
@@ -57,6 +52,12 @@ elif a=="レース賞別":
   Y1=grade["Win"]
   Y2=grade["Quinella"]
   Y3=grade["Show"]
+  
+if pred is not None:
+  predict=pd.read_csv(pred)
+  predict=predict.fillna(0)
+  st.markdown("入力データの確認")
+  st.dataframe(predict)
 
 st.write("未実装です")
 
