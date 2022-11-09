@@ -67,4 +67,4 @@ if pred is not None:
   predict=predict.fillna(0)
   st.markdown("入力データの確認")
   st.dataframe(predict)
-  st.write(LR1.predict(predict))
+#  st.write(LR1.predict(predict))
