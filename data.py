@@ -36,9 +36,11 @@ elif a=="レース賞別":
 
 st.write("未実装です")
 
-LR=LogisticRegression()
-LR.fit(X,Y1)
-LR.fit(X,Y2)
-LR.fit(X,Y3)
+LR1=LogisticRegression()
+LR2=LogisticRegression()
+LR3=LogisticRegression()
+LR1.fit(X,Y1)
+LR2.fit(X,Y2)
+LR3.fit(X,Y3)
 
 st.write("coef",LR.coef_)
