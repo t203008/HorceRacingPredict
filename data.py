@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+pip install -U scikit-learn
 from sklearn.linear_model import LogisticRegression
 
 st.title("競馬")
