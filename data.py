@@ -65,7 +65,7 @@ if pred is not None:
     sub.remove(i)
   st.markdown("入力データの確認")
   st.dataframe(predict)
-  sub.insert(1,"Race")
+  sub.insert(0,"Horse")
   st.write(sub)
 #  predicte=pd.read_csv(pred,names=sub)
   
