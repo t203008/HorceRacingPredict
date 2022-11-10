@@ -67,6 +67,6 @@ if pred is not None:
   st.dataframe(predict)
   sub.insert(0,"Horse")
   predicte=pd.read_csv(pred1)
-  st.write(predicte)
+#  st.write(predicte)
   
 #  st.write(LR1.predict(predict))
