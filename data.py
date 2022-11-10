@@ -56,13 +56,6 @@ elif a=="レース賞別":
 
 st.write("未実装です")
 
-LR1=LogisticRegression()
-LR2=LogisticRegression()
-LR3=LogisticRegression()
-LR1.fit(X,Y1)
-LR2.fit(X,Y2)
-LR3.fit(X,Y3)
-
 if pred is not None:
   predict=pd.read_csv(pred)
   predict=predict.fillna(0)
