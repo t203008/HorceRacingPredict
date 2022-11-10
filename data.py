@@ -62,10 +62,10 @@ if pred is not None:
   sub=list(horse_all.columns.values)
   dellist=["Race_Grade","Win","Quinella","Show","rank*class","pop*class"]
   for i in dellist:
-    sub.remove(i)
+    sub=sub.remove(i)
   st.markdown("入力データの確認")
   st.dataframe(predict)
-  sub.insert(1,"Race")
+  sub=sub.insert(1,"Race")
   predicte=pd.read_csv(pred,names=sub)
   
 #  st.write(LR1.predict(predict))
