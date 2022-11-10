@@ -59,7 +59,9 @@ st.write("未実装です")
 if pred is not None:
   predict=pd.read_csv(pred)
   predict=predict.fillna(0)
-  st.write(list(horse_all.columns.values))
-  st.markdown("入力データの確認")
+  sub=list(horse_all.columns.values)
+  dellist=["Race_Grade","Win","Quinella","Show","rank*class","pop*class"]
+  sub.remove(dellist)
+  st.markdown("sub")
   st.dataframe(predict)
 #  st.write(LR1.predict(predict))
