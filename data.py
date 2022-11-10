@@ -63,7 +63,7 @@ if pred is not None:
   dellist=["Race_Grade","Win","Quinella","Show","rank*class","pop*class"]
   for i in dellist:
     sub.remove(i)
-  st.markdown(入力データの確認)
+  st.markdown("入力データの確認")
   st.daftaframe(predict)
   sub.insert(1,"Race")
   predicte=pd.read_csv(pred,names=sub)
