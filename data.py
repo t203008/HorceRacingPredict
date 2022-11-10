@@ -64,7 +64,7 @@ if pred is not None:
   for i in dellist:
     sub.remove(i)
   st.markdown("入力データの確認")
-  st.daftaframe(predict)
+  st.dataframe(predict)
   sub.insert(1,"Race")
   predicte=pd.read_csv(pred,names=sub)
   
