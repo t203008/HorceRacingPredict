@@ -1,7 +1,8 @@
 import streamlit as st
 import pandas as pd
 import base64
-from sklearn.linear_model import LogisticRegression
+import statsmodels.formula.api as smf
+import statsmodels.api as sm
 from PIL import Image
 
 st.title("競馬")
@@ -65,6 +66,7 @@ LR3.fit(X,Y3)
 if pred is not None:
   predict=pd.read_csv(pred)
   predict=predict.fillna(0)
+  st.write(list(horse_all.columns.values))
   st.markdown("入力データの確認")
   st.dataframe(predict)
 #  st.write(LR1.predict(predict))
