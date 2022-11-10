@@ -66,7 +66,7 @@ if pred is not None:
   st.markdown("入力データの確認")
   st.dataframe(predict)
   sub.insert(0,"Horse")
-  predicte=pd.read_csv(pred1,names=sub)
+  predicte=pd.read_csv(pred1)
   st.write(predicte)
   
 #  st.write(LR1.predict(predict))
