@@ -61,7 +61,8 @@ if pred is not None:
   predict=predict.fillna(0)
   sub=list(horse_all.columns.values)
   dellist=["Race_Grade","Win","Quinella","Show","rank*class","pop*class"]
-  sub.remove(dellist)
+  for i in dellist:
+    sub.remove(i)
   st.markdown("sub")
   st.dataframe(predict)
 #  st.write(LR1.predict(predict))
