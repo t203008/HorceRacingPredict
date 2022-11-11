@@ -7,7 +7,7 @@ from PIL import Image
 
 st.title("競馬")
 st.write("前走から今回のレースの勝率などを計算します")
-st.write("まずはサイドバーを開いてください")
+st.write("まずは画面左上からサイドバーを開いてください")
 
 sample=pd.read_csv("Sample.csv")
 sample=sample.to_csv(index=False)  
