@@ -90,5 +90,6 @@ if pred is not None:
   predic2=logistic2.predict(predic)
   predic3=logistic3.predict(predic)
   
-  st.write(type(predic1))
+  
+  st.write(predic["Horse"])
   
