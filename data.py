@@ -27,7 +27,6 @@ st.sidebar.markdown(f"{href}", unsafe_allow_html=True)
 
 st.write("どのデータから結果を予測しますか")
 a=st.radio("データ選択", ("全レース", "レース賞別", "該当レース")) 
-st.write("次に画面左上からサイドバーを開いてください")
 
 horse_all=pd.read_csv("Horse_Race.csv")
 horse_all=horse_all.fillna(0)
@@ -59,6 +58,7 @@ elif a=="レース賞別":
   Y2=grade["Quinella"]
   Y3=grade["Show"]
   Z=grade
+st.write("次に画面左上からサイドバーを開いてください")
 #st.write("未実装です")
 #st.write(Z)
 
