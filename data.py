@@ -67,10 +67,10 @@ if pred is not None:
   predict=pd.read_csv(pred,names=sub)
   predict=predict.fillna(0)
   predict=predict.drop(index=predict.index[[0]])
-  st.markdown("入力データの確認")
-  st.dataframe(predict)
   predict["rank*class"]=predicct["P_rank"]*predict["P_class-Class"]
   predict["pop*class"]=predict["P_popular"]*predict["P_class-Class"]
+  st.markdown("入力データの確認")
+  st.dataframe(predict)
   
   logistic1 = smf.glm(formula = "Y1 ~ X",
                    data = Z ,
