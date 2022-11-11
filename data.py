@@ -80,6 +80,6 @@ if pred is not None:
                    data = Z ,
                    family = sm.families.Binomial()).fit()
   
-  st.write(logistic1.summary())
   predic1=logistic1.predict(predic)
+  st.write(predic1)
   
