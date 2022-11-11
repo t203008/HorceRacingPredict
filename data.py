@@ -69,8 +69,8 @@ if pred is not None:
   predict=predict.drop(index=predict.index[[0]])
   st.dataframe(predict)
   for i in sub:
-    st.write(predict[i].dtype())
-    predict[i]=predict[i].astype(float,errors="raise")
+    if i not in ["Horse",Race]:
+      predict[i]=predict[i].astype(float,errors="raise")
   predict["rank*class"]=predict["P_rank"]*predict["P_class-Class"]
   predict["pop*class"]=predict["P_popular"]*predict["P_class-Class"]
   st.markdown("入力データの確認")
