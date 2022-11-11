@@ -73,7 +73,7 @@ if pred is not None:
   predict["rank*class"]=predict["P_rank"]*predict["P_class-Class"]
   predict["pop*class"]=predict["P_popuar"]*predict["P_class-Class"]
   st.markdown("入力データの確認")
-  st.write(predict)  
+  st.dataframe(predict)  
   logistic1 = smf.glm(formula = "Y1 ~ X",
                    data = Z ,
                    family = sm.families.Binomial()).fit()
