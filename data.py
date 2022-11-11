@@ -77,4 +77,4 @@ if pred is not None:
   logistic1 = smf.glm(formula = "Y1 ~ X",
                    data = Z ,
                    family = sm.families.Binomial()).fit()
-  st.write(logistic.summary())
+  st.write(logistic1.summary())
