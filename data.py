@@ -90,7 +90,7 @@ if pred is not None:
   predic2=logistic2.predict(predic)
   predic3=logistic3.predict(predic)
   predi=pd.DataFrame()
-  pre=pd.concat([predic["Horse"],predic1,predic2,predic3])
+  pre=pd.concat([predic["Horse"],predic1,predic2,predic3],axis=1)
   
   st.write(pre)
   
