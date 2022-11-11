@@ -64,17 +64,20 @@ sub.insert(0,"Horse")
 
 if pred is not None:
   pred1=pred
-  predict=pd.read_csv(pred,names=sub)
-  predict=predict.fillna(0)
-  predict=predict.drop(index=predict.index[[0]])
+  predic=pd.read_csv(pred,names=sub)
+  predic=predict.fillna(0)
+  predic=predict.drop(index=predict.index[[0]])
   for i in sub:
     if i not in ["Horse","Race"]:
-      predict[i]=predict[i].astype(float,errors="raise")
-  predict["rank*class"]=predict["P_rank"]*predict["P_class-Class"]
-  predict["pop*class"]=predict["P_popular"]*predict["P_class-Class"]
+      predic[i]=predic[i].astype(float,errors="raise")
+  predic["rank*class"]=predic["P_rank"]*predic["P_class-Class"]
+  predic["pop*class"]=predic["P_popular"]*predic["P_class-Class"]
   st.markdown("入力データの確認")
-  st.dataframe(predict)  
+  st.dataframe(predic)  
   logistic1 = smf.glm(formula = "Y1 ~ X",
                    data = Z ,
                    family = sm.families.Binomial()).fit()
-  st.write(logistic1.summary())
+  
+  logistic1.summary()
+  predic1=logistic1.predict(predic)
+  
