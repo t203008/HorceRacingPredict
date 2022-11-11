@@ -55,18 +55,18 @@ st.sidebar.markdown("### 2. ファイルアップロード")
 st.sidebar.markdown("1で作成したcsvファイルをドラッグ&ドロップしてください")
 pred=st.sidebar.file_uploader("CSVファイルをドラッグ&ドロップ", type='csv', key='train')
 
+sub=list(horse_all.columns.values)
+dellist=["Race_Grade","Win","Quinella","Show","rank*class","pop*class"]
+for i in dellist:
+  sub.remove(i)
+sub.insert(0,"Horse")
+
 if pred is not None:
   pred1=pred
-  predict=pd.read_csv(pred)
+  predict=pd.read_csv(pred,names=sub)
   predict=predict.fillna(0)
-  sub=list(horse_all.columns.values)
-  dellist=["Race_Grade","Win","Quinella","Show","rank*class","pop*class"]
-  for i in dellist:
-    sub.remove(i)
   st.markdown("入力データの確認")
   st.dataframe(predict)
-  sub.insert(0,"Horse")
-  predicte=pd.read_csv(pred1)
 #  st.write(predicte)
   
 #  st.write(LR1.predict(predict))
