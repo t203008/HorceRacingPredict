@@ -65,11 +65,12 @@ sub.insert(0,"Horse")
 
 if pred is not None:
   pred1=pred
-  predic=pd.read_csv(pred,names=sub)
+  predic=pd.read_csv(pred)
   predic=predic.fillna(0)
   predic=predic.drop(index=predic.index[[0]])
+  st.write(predic)
   for i in sub:
-    if i not in ["Horse","Race"]:
+    if i not in ["馬名","レース名"]:
       predic[i]=predic[i].astype(float,errors="raise")
   predic["rank*class"]=predic["P_rank"]*predic["P_class-Class"]
   predic["pop*class"]=predic["P_popular"]*predic["P_class-Class"]
