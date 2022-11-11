@@ -104,3 +104,7 @@ if pred is not None:
   pred=pre.rename(columns={"Horse":"馬名",0:"単勝率",1:"連対率",2:"複勝率"})
   st.write(pred)
   
+  st.write("注意点")
+  st.markdown("1.前走のデータからの予測ゆえ、前走不利があった馬などは確率が下がっています")
+  st.markdown("2.前走海外馬のデータが少なく、確率はかなり下がっていると考えられます")
+  
