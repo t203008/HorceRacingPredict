@@ -92,5 +92,5 @@ if pred is not None:
   predi=pd.DataFrame()
   pre=pd.concat([predic["Horse"],predic1,predic2,predic3],axis=1)
   pre.rename(columns={"Horse":"馬名",0:"単勝率",1:"連対率",2:"複勝率"})
-  st.write(pred)
+  st.write(pre)
   
