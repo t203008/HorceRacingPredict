@@ -29,6 +29,7 @@ if a=="全レース":
   Y1=horse_all["Win"]
   Y2=horse_all["Quinella"]
   Y3=horse_all["Show"]
+  Z=horse_all
 elif a=="該当レース":
   y=st.selectbox("レース選択(現在はエリザベス女王杯のみ)",("天皇賞(秋)","エリザベス女王杯"))
   if y=="エリザベス女王杯":
@@ -38,7 +39,7 @@ elif a=="該当レース":
   Y1=this["Win"]
   Y2=this["Quinella"]
   Y3=this["Show"]
-  
+  Z=this
 elif a=="レース賞別":
   y=st.selectbox("レース賞選択",("G1","G2","G3"))
   y=int(y.replace("G",""))
@@ -47,7 +48,7 @@ elif a=="レース賞別":
   Y1=grade["Win"]
   Y2=grade["Quinella"]
   Y3=grade["Show"]
-
+  Z=grade
 st.write("未実装です")
 
 st.sidebar.markdown("")
@@ -68,6 +69,9 @@ if pred is not None:
   predict=predict.drop(index=predict.index[[0]])
   st.markdown("入力データの確認")
   st.dataframe(predict)
-#  st.write(predicte)
+  
+  logistic1 = smf.glm(formula = Y1 ~ X,
+                   data = Z ,
+                   family = sm.families.Binomial()).fit()
   
 #  st.write(LR1.predict(predict))
