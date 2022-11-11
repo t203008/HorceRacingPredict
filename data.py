@@ -66,7 +66,7 @@ if pred is not None:
   pred1=pred
   predic=pd.read_csv(pred,names=sub)
   predic=predic.fillna(0)
-  predic=predic.drop(index=predict.index[[0]])
+  predic=predic.drop(index=predic.index[[0]])
   for i in sub:
     if i not in ["Horse","Race"]:
       predic[i]=predic[i].astype(float,errors="raise")
