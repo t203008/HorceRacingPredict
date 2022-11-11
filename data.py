@@ -6,6 +6,9 @@ import statsmodels.api as sm
 from PIL import Image
 
 st.title("競馬")
+st.write("前走の内容などから今回のレースの勝率などを計算します")
+st.write("まずはサイドバーを開いてください")
+
 sample=pd.read_csv("Sample.csv")
 sample=sample.to_csv(index=False)  
 b64 = base64.b64encode(sample.encode('utf-8-sig')).decode()
