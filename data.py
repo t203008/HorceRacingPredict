@@ -72,7 +72,7 @@ if pred is not None:
   for i in sub:
     if i not in ["Horse","Race"]:
       predic[i]=predic[i].astype(float,errors="raise")
-  predic["rank_and_class"]=predic["P_rank"]*predit["P_class_Class"]
+  predic["rank_and_class"]=predic["P_rank"]*predic["P_class_Class"]
   predic["pop_and_class"]=predic["P_popular"]*predic["P_class_Class"]
   st.dataframe(predic) 
   st.markdown("入力データの確認") 
