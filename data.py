@@ -20,7 +20,7 @@ st.sidebar.markdown("↓2022年 エリザベス女王杯　データ↓")
 sample2=pd.read_csv("Queen Elizabeth 2022.csv")
 sample2=sample2.to_csv(index=False)  
 b64 = base64.b64encode(sample2.encode('utf-8-sig')).decode()
-href = f'<a href="data:application/octet-stream;base64,{b64}" download="Queen Elizabeth 2022.csv">download</a>'
+href = f'<a href="data:application/octet-stream;base64,{b64}" download="Queen Elizabeth 2022.csv">Queen Elizabeth 2022</a>'
 st.sidebar.markdown(f"{href}", unsafe_allow_html=True)
 
 a=st.radio("データ選択", ("全レース", "レース賞別", "該当レース")) #第一引数：リスト名（選択肢群の上に表示）、第二引数：選択肢
