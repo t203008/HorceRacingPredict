@@ -89,7 +89,7 @@ if pred is not None:
   predic1=logistic1.predict(predic)
   predic2=logistic2.predict(predic)
   predic3=logistic3.predict(predic)
+  predi=pd.DataFrame()
   
-  
-  st.write(predic["Horse"])
+  st.write(predi)
   
