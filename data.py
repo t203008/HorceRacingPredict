@@ -90,7 +90,7 @@ if pred is not None:
   predic2=logistic2.predict(predic)
   predic3=logistic3.predict(predic)
   predi=pd.DataFrame()
-  pre=predi.contact([predic["Horse"],predic1,predic2,predic3])
+  pre=predic["Horse"].contact([predic1,predic2,predic3])
   
-  st.write(predi)
+  st.write(pre)
   
