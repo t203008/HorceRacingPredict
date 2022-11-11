@@ -103,7 +103,12 @@ if pred is not None:
   pre=pd.concat([predic["Horse"],predic1,predic2,predic3],axis=1)
   pred=pre.rename(columns={"Horse":"馬名",0:"単勝率",1:"連対率",2:"複勝率"})
   st.write(pred)
-  st.write(pred[["馬名","単勝率","連対率","複勝率"]].sum())
+  L=["単勝率","連対率","複勝率"]
+  K=1
+  for i in L:
+    pred[i]/pred[i].sum()*int(K)
+    K+=1
+  st.write(pred)
   
   st.write("注意点")
   st.markdown("1.前走のデータからの予測ゆえ、前走不利があった馬などは確率が下がっています")
