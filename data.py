@@ -90,7 +90,7 @@ if pred is not None:
   predic2=logistic2.predict(predic)
   predic3=logistic3.predict(predic)
   
-  predic=predic1.merge(predic1,predic2,predic3)
+  predic=predic1.merge(predic1,predic2)
   
   st.write(predic)
   
