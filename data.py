@@ -70,7 +70,7 @@ if pred is not None:
   st.markdown("入力データの確認")
   st.dataframe(predict)
   
-  logistic1 = smf.glm(formula = Y1 ~ X,
+  logistic1 = smf.glm(formula = "Y1 ~ X",
                    data = Z ,
                    family = sm.families.Binomial()).fit()
   
