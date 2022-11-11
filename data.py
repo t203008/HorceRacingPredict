@@ -65,6 +65,7 @@ if pred is not None:
   pred1=pred
   predict=pd.read_csv(pred,names=sub)
   predict=predict.fillna(0)
+  predict=predict.drop(index=predict.index[[1]])
   st.markdown("入力データの確認")
   st.dataframe(predict)
 #  st.write(predicte)
