@@ -106,7 +106,7 @@ if pred is not None:
   L=["単勝率","連対率","複勝率"]
   K=1
   for i in L:
-    pred[i]/pred[i].sum()*int(K)
+    pred[i]=pred[i]/pred[i].sum()*int(K)
     K+=1
   st.write(pred)
   
