@@ -91,6 +91,6 @@ if pred is not None:
   predic3=logistic3.predict(predic)
   predi=pd.DataFrame()
   pre=pd.concat([predic["Horse"],predic1,predic2,predic3],axis=1)
-  pred=pd.read_csv(pre,names=["馬名","単勝率","連対率","複勝率"])
+  pre.rename(columns={"Horse":"馬名",0:"単勝率",1:"連対率",2:"複勝率"})
   st.write(pred)
   
