@@ -16,6 +16,11 @@ st.sidebar.markdown(f"{href}", unsafe_allow_html=True)
 st.sidebar.markdown("入力例")
 image=Image.open("スクリーンショット (506).png")
 st.sidebar.image(image,caption="サイレンススズカの天皇賞(秋)に出る際の確率を調べたいとき",use_column_width=True)
+st.sidebar.markdown(2022年のエリザベス女王杯を予想したい場合はこの下のリンクから！")
+sample2=pd.read_csv("Queen Elizabeth 2022.csv")
+sample2=sample2.to_csv(index=False)  
+b64 = base64.b64encode(sample2.encode('utf-8-sig')).decode()
+href = f'<a href="data:application/octet-stream;base64,{b64}" download="Queen Elizabeth 2022.csv">download</a>'
 
 a=st.radio("データ選択", ("全レース", "レース賞別", "該当レース")) #第一引数：リスト名（選択肢群の上に表示）、第二引数：選択肢
 
