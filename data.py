@@ -67,6 +67,7 @@ if pred is not None:
   pred1=pred
   predic=pd.read_csv(pred)
   predic=predic.fillna(0)
+  st.dataframe(predic)
   for i in sub:
     if i not in ["馬名","レース名"]:
       predic[i]=predic[i].astype(float,errors="raise")
