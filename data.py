@@ -71,8 +71,8 @@ if pred is not None:
   for i in sub:
     if i not in ["馬名","レース名"]:
       predic[i]=predic[i].astype(float,errors="raise")
-  predic["rank*class"]=predic["P_rank"]*predic["P_class-Class"]
-  predic["pop*class"]=predic["P_popular"]*predic["P_class-Class"]
+  predic["順位*グレード"]=predic["前走順位"]*predic["グレード差"]
+  predic["人気*グレード"]=predic["前走人気"]*predic["グレード差"]
   st.markdown("入力データの確認")
   st.dataframe(predic)  
   logistic1 = smf.glm(formula = "Y1 ~ X",
