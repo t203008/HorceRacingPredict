@@ -50,6 +50,7 @@ elif a=="レース賞別":
   Y3=grade["Show"]
   Z=grade
 st.write("未実装です")
+st.write(Z)
 
 st.sidebar.markdown("")
 st.sidebar.markdown("### 2. ファイルアップロード")
