@@ -66,7 +66,7 @@ sub.insert(0,"Horse")
 if pred is not None:
   pred1=pred
   predic=pd.read_csv(pred,names=sub)
-  predic
+  predic=predic.drop(index=predic.index[[0]])
   predic=predic.fillna(0)
   st.dataframe(predic)
   for i in sub:
