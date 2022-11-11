@@ -90,7 +90,7 @@ if pred is not None:
   predic2=logistic2.predict(predic)
   predic3=logistic3.predict(predic)
   predi=pd.DataFrame()
-  pre=pd.concat([predic["Horse"],predic1,predic2,predic3],axis=1,names=["馬名","単勝率","連対率","複勝率"])
-  
-  st.write(pre)
+  pre=pd.concat([predic["Horse"],predic1,predic2,predic3],axis=1)
+  pred=pd.read_csv(pre,names=["馬名","単勝率","連対率","複勝率"])
+  st.write(pred)
   
