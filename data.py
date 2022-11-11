@@ -7,7 +7,6 @@ from PIL import Image
 
 st.title("競馬")
 st.write("前走から今回のレースの勝率などを計算します")
-st.write("まずは画面左上からサイドバーを開いてください")
 
 sample=pd.read_csv("Sample.csv")
 sample=sample.to_csv(index=False)  
@@ -26,7 +25,9 @@ b64 = base64.b64encode(sample2.encode('utf-8-sig')).decode()
 href = f'<a href="data:application/octet-stream;base64,{b64}" download="Queen Elizabeth 2022.csv">Queen Elizabeth 2022</a>'
 st.sidebar.markdown(f"{href}", unsafe_allow_html=True)
 
-a=st.radio("データ選択", ("全レース", "レース賞別", "該当レース")) #第一引数：リスト名（選択肢群の上に表示）、第二引数：選択肢
+st.write("どのデータから結果を予測しますか")
+a=st.radio("データ選択", ("全レース", "レース賞別", "該当レース")) 
+st.write("次に画面左上からサイドバーを開いてください")
 
 horse_all=pd.read_csv("Horse_Race.csv")
 horse_all=horse_all.fillna(0)
