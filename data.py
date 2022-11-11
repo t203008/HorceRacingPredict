@@ -85,7 +85,7 @@ if pred is not None:
   predic["rank_and_class"]=predic["P_rank"]*predic["P_class_Class"]
   predic["pop_and_class"]=predic["P_popular"]*predic["P_class_Class"]
   #st.dataframe(predic) 
-  st.markdown("予測される確率") 
+  st.header("予測される確率") 
   logistic1 = smf.glm(formula = "Win ~ 1+Age+Male+Stallion+P_rank+P_popular+Jockey_change+Change_from_P_Grass+Change_from_P_Dirt+Change_from_P_Hurdle+P_class_Class+Weight_P_Weight+Distance_P_distance+Week_distance+P_overseas+P_rank*P_popular*P_class_Class",
                    data = Z ,
                    family = sm.families.Binomial()).fit()
