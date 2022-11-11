@@ -68,6 +68,7 @@ if pred is not None:
   predict=predict.fillna(0)
   predict=predict.drop(index=predict.index[[0]])
   for i in sub:
+    st.write(predict[i].dtype())
     predict[i]=predict[i].astype(float,errors="raise")
   predict["rank*class"]=predict["P_rank"]*predict["P_class-Class"]
   predict["pop*class"]=predict["P_popular"]*predict["P_class-Class"]
