@@ -73,8 +73,8 @@ if pred is not None:
       predic[i]=predic[i].astype(float,errors="raise")
   predic["順位*グレード"]=predic["前走順位"]*predic["グレード差"]
   predic["人気*グレード"]=predic["前走人気"]*predic["グレード差"]
-  st.markdown("入力データの確認")
-  st.dataframe(predic)  
+  st.dataframe(predic) 
+  st.markdown("入力データの確認") 
   logistic1 = smf.glm(formula = "Y1 ~ X",
                    data = Z ,
                    family = sm.families.Binomial()).fit()
