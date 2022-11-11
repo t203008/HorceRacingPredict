@@ -21,8 +21,8 @@ a=st.radio("データ選択", ("全レース", "レース賞別", "該当レー�
 
 horse_all=pd.read_csv("Horse_Race.csv")
 horse_all=horse_all.fillna(0)
-horse_all["rank*class"]=horse_all["P_rank"]*horse_all["P_class-Class"]
-horse_all["pop*class"]=horse_all["P_popular"]*horse_all["P_class-Class"]
+horse_all["rank_and_class"]=horse_all["P_rank"]*horse_all["P_class_Class"]
+horse_all["pop_and_class"]=horse_all["P_popular"]*horse_all["P_class_Class"]
 
 if a=="全レース":
   X=horse_all.drop(["Race","Race_Grade","Win","Quinella","Show"],axis=1)
@@ -65,14 +65,15 @@ sub.insert(0,"Horse")
 
 if pred is not None:
   pred1=pred
-  predic=pd.read_csv(pred)
+  predic=pd.read_csv(pred,names=sub)
+  predic
   predic=predic.fillna(0)
   st.dataframe(predic)
   for i in sub:
-    if i not in ["馬名","レース名"]:
+    if i not in ["Horse","Race"]:
       predic[i]=predic[i].astype(float,errors="raise")
-  predic["順位*グレード"]=predic["前走順位"]*predic["グレード差"]
-  predic["人気*グレード"]=predic["前走人気"]*predic["グレード差"]
+  predic["rank_and_class"]=predic["P_rank"]*predit["P_class_Class"]
+  predic["pop_and_class"]=predic["P_popular"]*predic["P_class_Class"]
   st.dataframe(predic) 
   st.markdown("入力データの確認") 
   logistic1 = smf.glm(formula = "Y1 ~ X",
