@@ -23,7 +23,7 @@ st.sidebar.markdown("2022年マイルチャンピオンシップ　データ")
 sample2=pd.read_csv("Mile Championship 2022.csv")
 sample2=sample2.to_csv(index=False)  
 b64 = base64.b64encode(sample2.encode('utf-8-sig')).decode()
-href = f'<a href="data:application/octet-stream;base64,{b64}" download="Queen Elizabeth 2022.csv">Queen Elizabeth 2022</a>'
+href = f'<a href="data:application/octet-stream;base64,{b64}" download="Mile Championship 2022.csv">Mile Championship 2022</a>'
 st.sidebar.markdown(f"{href}", unsafe_allow_html=True)
 
 st.write("どのデータから結果を予測しますか")
