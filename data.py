@@ -41,9 +41,11 @@ if a=="全レース":
   Y3=horse_all["Show"]
   Z=horse_all
 elif a=="該当レース":
-  y=st.selectbox("レース選択(現在はエリザベス女王杯のみ)",("天皇賞(秋)","エリザベス女王杯"))
+  y=st.selectbox("レース選択(現在はエリザベス女王杯のみ)",("エリザベス女王杯","マイルチャンピオンシップ"))
   if y=="エリザベス女王杯":
-    b="Queen Elizabeth"
+    b="Queen Elizabeth II Cup"
+  if y=="マイルチャンピオンシップ":
+    b="Mile Championship"
   this=horse_all[horse_all["Race"].str.contains(b)]
   X=this.drop(["Race","Race_Grade","Win","Quinella","Show"],axis=1)
   Y1=this["Win"]
