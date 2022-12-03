@@ -63,7 +63,6 @@ elif a=="芝ダート別":
   Y2=course["Quinella"]
   Y3=course["Show"]
   Z=course
-st.write("次に画面左上からサイドバーを開いてください")
 elif a=="レース賞別":
   y=st.selectbox("レース賞選択",("G1","G2","G3"))
   y=int(y.replace("G",""))
