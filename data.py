@@ -5,6 +5,9 @@ import base64
 import statsmodels.formula.api as smf
 import statsmodels.api as sm
 from PIL import Image
+%matplotlib inline
+import matplotlib.pyplot as plt
+import japanize_matplotlib
 
 st.title("競馬")
 st.write("前走から今回のレースの勝率などを計算します")
@@ -130,5 +133,4 @@ if pred is not None:
   st.markdown("3.3歳馬限定レースがあるため、3歳が評価されやすくなっています")
   st.markdown("4.該当レースから求めた確率はサンプル数が少なく、信ぴょう性に欠けます")
   
-  st.write(pred.plot())
-  
+  pred.plot()
