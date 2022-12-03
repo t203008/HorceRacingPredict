@@ -62,6 +62,8 @@ elif a=="芝ダート別":
   y=st.selectbox("選択",("芝","ダート"))
   if y=="ダート":
     course=horse_all[(horse_all["Dirt"]==1)]
+  else:
+    course=horse_all[(horse_all["Dirt"]==0)]
   X=course.drop(["Race","Race_Grade","Dirt","Distance","Win","Quinella","Show"],axis=1)
   Y1=course["Win"]
   Y2=course["Quinella"]
