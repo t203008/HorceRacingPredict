@@ -132,4 +132,4 @@ if pred is not None:
   st.markdown("3.3歳馬限定レースがあるため、3歳が評価されやすくなっています")
   st.markdown("4.該当レースから求めた確率はサンプル数が少なく、信ぴょう性に欠けます")
   
-  pred.plot()
+  st.write(pred.plot())
