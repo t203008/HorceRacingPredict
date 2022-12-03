@@ -135,10 +135,10 @@ if pred is not None:
   pred1=pred.drop(["馬名"],axis=1)
   pred=pred.T
   
-  win_list=pred["単勝率"].to_list()
-  quinella_list=pred["連対率"].to_list()
-  show_list=pred["複勝率"].to_list()
-  names=pred["馬名"].to_list()
+  win_list=pred[]["単勝率"].to_list()
+  quinella_list=pred[]["連対率"].to_list()
+  show_list=pred[]["複勝率"].to_list()
+  names=pred[]["馬名"].to_list()
   predicrt_list=[win_list,quinella_list,show_list]
   graph1=pd.DataFrame(data=predict_list,index=["単勝率","連対率","複勝率"],cplumns=names)
   
