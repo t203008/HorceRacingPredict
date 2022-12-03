@@ -145,6 +145,10 @@ if pred is not None:
     predict_list.append(show_predict[i])
     predic[names[i]]=predict_list
   
-  st.write(predic)
-  st.subheader('Line Chart')
-  st.line_chart(pred)
+  plt.figure()
+  x=[1,2,3]
+  for i in range(predic):
+      y=predic[names[i]]
+      plt.plot(x,y)
+  st.pyplot(plt.show())
+  st.
