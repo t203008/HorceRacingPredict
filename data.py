@@ -37,7 +37,7 @@ horse_all["rank_and_class"]=horse_all["P_rank"]*horse_all["P_class_Class"]
 horse_all["pop_and_class"]=horse_all["P_popular"]*horse_all["P_class_Class"]
 
 if a=="全レース":
-  X=horse_all.drop(["Race","Race_Grade","Win","Quinella","Show"],axis=1)
+  X=horse_all.drop(["Race","Race_Grade","Dirt","Distance","Win","Quinella","Show"],axis=1)
   Y1=horse_all["Win"]
   Y2=horse_all["Quinella"]
   Y3=horse_all["Show"]
