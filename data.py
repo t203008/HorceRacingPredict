@@ -148,5 +148,6 @@ if pred is not None:
   plt.figure()
   x=[1,2,3]
   for i in range(len(predic)):
-      plt.plot(x,y)
+    y=predic[names[i]]
+    plt.plot(x,y)
   st.pyplot(plt.show())
