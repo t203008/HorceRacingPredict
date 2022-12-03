@@ -133,9 +133,13 @@ if pred is not None:
   st.markdown("4.該当レースから求めた確率はサンプル数が少なく、信ぴょう性に欠けます")
 
   pred1=pred.drop(["馬名"],axis=1)
-  pred1=pred1.T
   pred=pred.T
   
-  st.subheader('折れ線グラフ')
-  st.line_chart(pred1)
-  st.dataframe(pred1)
+  win_list=pred["単勝率"].to_list()
+  quinella_list=pred["連対率"].to_list()
+  show_list=pred["複勝率"].to_list()
+  names=pred["馬名"].to_list()
+  predicrt_list=[win_list,quinella_list,show_list]
+  graph1=pd.DataFrame(data=predict_list,index=["単勝率","連対率","複勝率"],cplumns=names)
+  
+  st.write(graph1)
