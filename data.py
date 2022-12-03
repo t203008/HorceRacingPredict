@@ -5,7 +5,6 @@ import base64
 import statsmodels.formula.api as smf
 import statsmodels.api as sm
 from PIL import Image
-%matplotlib inline
 import matplotlib.pyplot as plt
 import japanize_matplotlib
 
