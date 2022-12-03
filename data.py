@@ -27,7 +27,7 @@ href = f'<a href="data:application/octet-stream;base64,{b64}" download="Japan Cu
 st.sidebar.markdown(f"{href}", unsafe_allow_html=True)
 
 st.write("どのデータから結果を予測しますか")
-a=st.radio("データ選択", ("全レース", "レース賞別", "該当レース")) 
+a=st.radio("データ選択", ("全レース", "芝ダート別","レース賞別", "該当レース")) 
 
 horse_all=pd.read_csv("Horse_Race.csv")
 horse_all=horse_all.fillna(0)
@@ -54,11 +54,21 @@ elif a=="該当レース":
   Y2=this["Quinella"]
   Y3=this["Show"]
   Z=this
+elif a=="芝ダート別":
+  y=st.select.box("選択",("芝","ダート"))
+  if y=="ダート":
+    course=horse_all[(horse_all["Dirt"]==1)]
+  X=course.drop(["Race","Race_Grade","Dirt","Distance","Win","Quinella","Show"],axis=1)
+  Y1=course["Win"]
+  Y2=course["Quinella"]
+  Y3=course["Show"]
+  Z=course
+st.write("次に画面左上からサイドバーを開いてください")
 elif a=="レース賞別":
   y=st.selectbox("レース賞選択",("G1","G2","G3"))
   y=int(y.replace("G",""))
   grade=horse_all[(horse_all["Race_Grade"]==y)]
-  X=grade.drop(["Race","Race_Grade","Win","Quinella","Show"],axis=1)
+  X=grade.drop(["Race","Race_Grade","Dirt","Distance","Win","Quinella","Show"],axis=1)
   Y1=grade["Win"]
   Y2=grade["Quinella"]
   Y3=grade["Show"]
