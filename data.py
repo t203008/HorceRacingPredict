@@ -19,11 +19,11 @@ st.sidebar.markdown(f"{href}", unsafe_allow_html=True)
 st.sidebar.markdown("入力例")
 image=Image.open("スクリーンショット (506).png")
 st.sidebar.image(image,caption="サイレンススズカの天皇賞(秋)に出る際の確率を調べたいとき",use_column_width=True)
-st.sidebar.markdown("2022年ジャパンカップ　データ")
-sample2=pd.read_csv("Japan Cup 2022.csv")
+st.sidebar.markdown("2022年チャンピオンズカップ　データ")
+sample2=pd.read_csv("Champions Cup 2022.csv")
 sample2=sample2.to_csv(index=False)  
 b64 = base64.b64encode(sample2.encode('utf-8-sig')).decode()
-href = f'<a href="data:application/octet-stream;base64,{b64}" download="Japan Cup 2022.csv">Japan Cup 2022</a>'
+href = f'<a href="data:application/octet-stream;base64,{b64}" download="Champions Cup 2022.csv">Chanmpions Cup 2022</a>'
 st.sidebar.markdown(f"{href}", unsafe_allow_html=True)
 
 st.write("どのデータから結果を予測しますか")
@@ -41,13 +41,15 @@ if a=="全レース":
   Y3=horse_all["Show"]
   Z=horse_all
 elif a=="該当レース":
-  y=st.selectbox("レース選択",("エリザベス女王杯","マイルチャンピオンシップ","ジャパンカップ"))
+  y=st.selectbox("レース選択",("エリザベス女王杯","マイルチャンピオンシップ","ジャパンカップ","チャンピオンズカップ"))
   if y=="エリザベス女王杯":
     b="Queen Elizabeth II Cup"
   if y=="マイルチャンピオンシップ":
     b="Mile Championship"
   if y=="ジャパンカップ":
     b="Japan Cup"
+  if y=="チャンピオンズカップ":
+    b=="Champions Cup"
   this=horse_all[horse_all["Race"].str.contains(b)]
   X=this.drop(["Race","Race_Grade","Dirt","Distance","Win","Quinella","Show"],axis=1)
   Y1=this["Win"]
