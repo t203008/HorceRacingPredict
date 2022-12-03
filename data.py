@@ -151,4 +151,3 @@ if pred is not None:
       y=predic[names[i]]
       plt.plot(x,y)
   st.pyplot(plt.show())
-  st.
