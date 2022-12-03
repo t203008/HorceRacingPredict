@@ -139,7 +139,7 @@ if pred is not None:
   quinella_list=pred["連対率"].to_list()
   show_list=pred["複勝率"].to_list()
   names=pred["馬名"].to_list()
-  predicrt_list=[win_list,quinella_list,show_list]
+  predict_list=[win_list,quinella_list,show_list]
   graph1=pd.DataFrame(data=predict_list,index=["単勝率","連対率","複勝率"],cplumns=names)
   
   st.write(graph1)
