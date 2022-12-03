@@ -141,5 +141,5 @@ if pred is not None:
   names=pred["馬名"].to_list()
   predict_list=[win_list,quinella_list,show_list]
   graph1=pd.DataFrame(data=predict_list,index=["単勝率","連対率","複勝率"],columns=names)
-  
-  st.write(graph1)
+  st.line_chart(graph1)
+  st.dataframe(graph1)
