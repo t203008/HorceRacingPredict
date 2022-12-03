@@ -59,7 +59,7 @@ elif a=="該当レース":
   Y3=this["Show"]
   Z=this
 elif a=="芝ダート別":
-  y=st.select.box("選択",("芝","ダート"))
+  y=st.selectbox("選択",("芝","ダート"))
   if y=="ダート":
     course=horse_all[(horse_all["Dirt"]==1)]
   X=course.drop(["Race","Race_Grade","Dirt","Distance","Win","Quinella","Show"],axis=1)
