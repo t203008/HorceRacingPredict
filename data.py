@@ -51,7 +51,7 @@ elif a=="該当レース":
   if y=="ジャパンカップ":
     b="Japan Cup"
   if y=="チャンピオンズカップ":
-    b=="Champions Cup"
+    b="Champions Cup"
   this=horse_all[horse_all["Race"].str.contains(b)]
   X=this.drop(["Race","Race_Grade","Dirt","Distance","Win","Quinella","Show"],axis=1)
   Y1=this["Win"]
