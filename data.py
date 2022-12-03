@@ -132,7 +132,9 @@ if pred is not None:
   st.markdown("3.3歳馬限定レースがあるため、3歳が評価されやすくなっています")
   st.markdown("4.該当レースから求めた確率はサンプル数が少なく、信ぴょう性に欠けます")
   
-  head=pred["馬名"].to_list()
-  st.write(head)
+  names=pred["馬名"].to_list()
+  resul=pred["単勝率","連対率","複勝率"].to_list()
+  
+  st.write(resul)
   st.subheader('Line Chart')
   st.line_chart(pred)
