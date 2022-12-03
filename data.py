@@ -131,23 +131,5 @@ if pred is not None:
   st.markdown("2.前走海外馬のデータが少なく、確率はかなり低くでると考えられます")
   st.markdown("3.3歳馬限定レースがあるため、3歳が評価されやすくなっています")
   st.markdown("4.該当レースから求めた確率はサンプル数が少なく、信ぴょう性に欠けます")
-  
-  names=pred["馬名"].to_list()
-  win_predict=pred["単勝率"].to_list()
-  quinella_predict=pred["連対率"].to_list()
-  show_predict=pred["複勝率"].to_list()
-  
-  predic={}
-  for i in range(len(names)):
-    predict_list=[]
-    predict_list.append(win_predict[i])
-    predict_list.append(quinella_predict[i])
-    predict_list.append(show_predict[i])
-    predic[names[i]]=predict_list
-  
-  plt.figure()
-  x=[1,2,3]
-  for i in range(len(predic)):
-    y=predic[names[i]]
-    plt.plot(x,y)
-  st.pyplot(plt.show())
+
+  st.write(pred.T)
