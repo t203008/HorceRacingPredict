@@ -133,5 +133,9 @@ if pred is not None:
   st.markdown("4.該当レースから求めた確率はサンプル数が少なく、信ぴょう性に欠けます")
 
   pred1=pred.drop(["馬名"],axis=1)
-  st.write(pred1.T)
-  st.write(pred.T)
+  pred1=pred1.T
+  pred=pred.T
+  
+  st.subheader('折れ線グラフ')
+  st.line_chart(pred1)
+  st.dataframe(pred1)
