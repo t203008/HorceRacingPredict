@@ -143,7 +143,7 @@ if pred is not None:
     predict_list.append(win_predict[i])
     predict_list.append(quinella_predict[i])
     predict_list.append(show_predict[i])
-    predic[names[i]]=predic_list
+    predic[names[i]]=predict_list
   
   st.write(predic)
   st.subheader('Line Chart')
