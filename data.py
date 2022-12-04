@@ -127,12 +127,6 @@ if pred is not None:
     pred[i]=pred[i]/pred[i].sum()*int(K)
     K+=1
   st.write(pred)
-  
-  st.write("注意点")
-  st.markdown("1.前走のデータからの予測ゆえ、前走不利があった馬などは確率が下がっています")
-  st.markdown("2.前走海外馬のデータが少なく、確率はかなり低くでると考えられます")
-  st.markdown("3.3歳馬限定レースがあるため、3歳が評価されやすくなっています")
-  st.markdown("4.該当レースから求めた確率はサンプル数が少なく、信ぴょう性に欠けます")
 
   pred1=pred.drop(["馬名"],axis=1)
   pred2=pred.T
@@ -144,4 +138,9 @@ if pred is not None:
   predict_list=[win_list,quinella_list,show_list]
   graph1=pd.DataFrame(data=predict_list,index=["1.単勝率","2.連対率","3.複勝率"],columns=names)
   st.line_chart(graph1)
-  st.dataframe(graph1)
+
+  st.write("注意点")
+  st.markdown("1.前走のデータからの予測ゆえ、前走不利があった馬などは確率が下がっています")
+  st.markdown("2.前走海外馬のデータが少なく、確率はかなり低くでると考えられます")
+  st.markdown("3.3歳馬限定レースがあるため、3歳が評価されやすくなっています")
+  st.markdown("4.該当レースから求めた確率はサンプル数が少なく、信ぴょう性に欠けます")
