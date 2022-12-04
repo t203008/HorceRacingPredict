@@ -28,13 +28,20 @@ b64 = base64.b64encode(sample2.encode('utf-8-sig')).decode()
 href = f'<a href="data:application/octet-stream;base64,{b64}" download="Champions Cup 2022.csv">Chanmpions Cup 2022</a>'
 st.sidebar.markdown(f"{href}", unsafe_allow_html=True)
 
-st.write("どのデータから結果を予測しますか")
-a=st.radio("データ選択", ("全レース", "芝ダート別","レース賞別", "該当レース")) 
-
 horse_all=pd.read_csv("Horse_Race.csv")
 horse_all=horse_all.fillna(0)
 horse_all["rank_and_class"]=horse_all["P_rank"]*horse_all["P_class_Class"]
 horse_all["pop_and_class"]=horse_all["P_popular"]*horse_all["P_class_Class"]
+
+st.write("どのデータから結果を予測しますか")
+course=st.radio(label="どの馬場から選びますか",options=("芝","ダート"),index=0,horizontal=True,)
+if course=="ダート":
+  horse_all=horse_all[(horse_all["Dirt"]==1)]
+elif course=="芝":
+  horse_all=horse_all[(horse_all["Dirt"]==0)]
+
+a=st.radio("データ選択", ("全レース", "レース賞別", "該当レース")) 
+
 
 if a=="全レース":
   X=horse_all.drop(["Race","Race_Grade","Dirt","Distance","Win","Quinella","Show"],axis=1)
@@ -58,17 +65,6 @@ elif a=="該当レース":
   Y2=this["Quinella"]
   Y3=this["Show"]
   Z=this
-elif a=="芝ダート別":
-  y=st.selectbox("選択",("芝","ダート"))
-  if y=="ダート":
-    course=horse_all[(horse_all["Dirt"]==1)]
-  else:
-    course=horse_all[(horse_all["Dirt"]==0)]
-  X=course.drop(["Race","Race_Grade","Dirt","Distance","Win","Quinella","Show"],axis=1)
-  Y1=course["Win"]
-  Y2=course["Quinella"]
-  Y3=course["Show"]
-  Z=course
 elif a=="レース賞別":
   y=st.selectbox("レース賞選択",("G1","G2","G3"))
   y=int(y.replace("G",""))
