@@ -119,13 +119,16 @@ if pred is not None:
   pred=pre.rename(columns={"Horse":"馬名",0:"単勝率",1:"連対率",2:"複勝率"})
   L=["単勝率","連対率","複勝率"]
   K=1
-  for i in L:
-    pred[i]=pred[i]/pred[i].sum()*int(K)
-    K+=1
-  st.write(pred)
+  changedata=st.radio("調整しますか",("する","しない"))
+  if changedata=="する":
+    for i in L:
+      pred[i]=pred[i]/pred[i].sum()*int(K)
+      K+=1
+    st.write(pred)
+  else:
+    st.write(pred)
 
   pred1=pred.drop(["馬名"],axis=1)
-  pred2=pred.T
   
   win_list=pred["単勝率"].to_list()
   quinella_list=pred["連対率"].to_list()
