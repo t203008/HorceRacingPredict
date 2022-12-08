@@ -34,6 +34,8 @@ horse_all["rank_and_class"]=horse_all["P_rank"]*horse_all["P_class_Class"]
 horse_all["pop_and_class"]=horse_all["P_popular"]*horse_all["P_class_Class"]
 horse_all["two_age"]=horse_all["Age"]**2
 horse_all["two_Week"]=horse_all["Week_distance"]**2
+horse_all["two_Weight"]=horse_all["Weight_P_Weight"]**2
+horse_all["two_Distance"]=horse_all["Distance_P_distance"]**2
 
 
 st.write("どのデータから結果を予測しますか")
@@ -115,6 +117,8 @@ if pred is not None:
   predic["pop_and_class"]=predic["P_popular"]*predic["P_class_Class"]
   predic["two_age"]=predic["Age"]**2
   predic["two_Week"]=predic["Week_distance"]**2
+  predic["two_Weight"]=predic["Weight_P_Weight"]**2
+  predic["two_Distance"]=predic["Distance_P_distance"]**2
   
   #st.dataframe(predic) 
   st.header("予測される確率") 
