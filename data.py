@@ -32,10 +32,10 @@ horse_all=pd.read_csv("Horse_Race.csv")
 horse_all=horse_all.fillna(0)
 horse_all["rank_and_class"]=horse_all["P_rank"]*horse_all["P_class_Class"]
 horse_all["pop_and_class"]=horse_all["P_popular"]*horse_all["P_class_Class"]
-horse_all["two_age"]=horse_all["Age"]**2
-horse_all["two_Week"]=horse_all["Week_distance"]**2
-horse_all["two_Weight"]=horse_all["Weight_P_Weight"]**2
-horse_all["two_Distance"]=horse_all["Distance_P_distance"]**2
+#horse_all["two_age"]=horse_all["Age"]**2
+#horse_all["two_Week"]=horse_all["Week_distance"]**2
+#horse_all["two_Weight"]=horse_all["Weight_P_Weight"]**2
+#horse_all["two_Distance"]=horse_all["Distance_P_distance"]**2
 horse_all["pop_rank_class"]=horse_all["P_popular"]*horse_all["P_class_Class"]*horse_all["P_rank"]
 
 
@@ -126,13 +126,22 @@ if pred is not None:
   
   #st.dataframe(predic) 
   st.header("予測される確率") 
-  logistic1 = smf.glm(formula = "Win ~ 1+pop_rank_class+two_Weight+two_Distance+Age+two_age+Mare+Stallion+P_rank+P_popular+Jockey_change+Change_from_P_Grass+Change_from_P_Dirt+Change_from_P_Hurdle+P_class_Class+Weight_P_Weight+Distance_P_distance+Week_distance+two_Week+P_overseas+P_rank*P_popular*P_class_Class",
+  logistic1 = smf.glm(formula = "Win ~ 1+pop_rank_class+#two_Weight+two_Distance+
+                      Age+#two_age
+                      +Mare+Stallion+P_rank+P_popular+Jockey_change+Change_from_P_Grass+Change_from_P_Dirt+Change_from_P_Hurdle+P_class_Class+Weight_P_Weight+Distance_P_distance+Week_distance+#two_Week+
+                      P_overseas+P_rank*P_popular*P_class_Class",
                    data = Z ,
                    family = sm.families.Binomial()).fit()
-  logistic2 = smf.glm(formula = "Quinella ~ 1+pop_rank_class+two_Weight+two_Distance+Age+two_age+Mare+Stallion+P_rank+P_popular+Jockey_change+Change_from_P_Grass+Change_from_P_Dirt+Change_from_P_Hurdle+P_class_Class+Weight_P_Weight+Distance_P_distance+Week_distance+two_Week+P_overseas+P_rank*P_popular*P_class_Class",
+  logistic2 = smf.glm(formula = "Quinella ~ 1+pop_rank_class+#two_Weight+two_Distance+
+                      Age+#two_age
+                      +Mare+Stallion+P_rank+P_popular+Jockey_change+Change_from_P_Grass+Change_from_P_Dirt+Change_from_P_Hurdle+P_class_Class+Weight_P_Weight+Distance_P_distance+Week_distance+#two_Week+
+                      P_overseas+P_rank*P_popular*P_class_Class",
                    data = Z ,
                    family = sm.families.Binomial()).fit()
-  logistic3 = smf.glm(formula = "Show ~ 1+pop_rank_class+two_Weight+two_Distance+Age+two_age+Mare+Stallion+P_rank+P_popular+Jockey_change+Change_from_P_Grass+Change_from_P_Dirt+Change_from_P_Hurdle+P_class_Class+Weight_P_Weight+Distance_P_distance+Week_distance+two_Week+P_overseas+P_rank*P_popular*P_class_Class",
+  logistic3 = smf.glm(formula = "Show ~ 1+pop_rank_class+#two_Weight+two_Distance+
+                      Age+#two_age
+                      +Mare+Stallion+P_rank+P_popular+Jockey_change+Change_from_P_Grass+Change_from_P_Dirt+Change_from_P_Hurdle+P_class_Class+Weight_P_Weight+Distance_P_distance+Week_distance+#two_Week+
+                      P_overseas+P_rank*P_popular*P_class_Class",
                    data = Z ,
                    family = sm.families.Binomial()).fit()
   
