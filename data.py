@@ -118,9 +118,9 @@ if pred is not None:
       predic[i]=predic[i].astype(float,errors="raise")
   predic["rank_and_class"]=predic["P_rank"]*predic["P_class_Class"]
   predic["pop_and_class"]=predic["P_popular"]*predic["P_class_Class"]
-  predic["pop_rank_class"]=predic["P_popular"]*predic["P_class_Class"]*predic["P_rank"]
   predic["two_Week"]=predic["Week_distance"]**2
   predic["two_Distance"]=predic["Distance_P_distance"]**2
+  predic["pop_rank_class"]=predic["P_popular"]*predic["P_class_Class"]*predic["P_rank"]
   
   #st.dataframe(predic) 
   st.header("予測される確率") 
