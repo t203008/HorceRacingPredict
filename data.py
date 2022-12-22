@@ -21,11 +21,11 @@ st.sidebar.markdown(f"{href}", unsafe_allow_html=True)
 st.sidebar.markdown("入力例")
 image=Image.open("スクリーンショット (506).png")
 st.sidebar.image(image,caption="サイレンススズカの天皇賞(秋)に出る際の確率を調べたいとき",use_column_width=True)
-st.sidebar.markdown("2022年朝日杯フューチュリティステークス　データ")
-sample2=pd.read_csv("Asahi Hai Futurity Stakes 2022.csv")
+st.sidebar.markdown("2022年有馬記念　データ")
+sample2=pd.read_csv("Arima Kinen (Grand Prix) 2022.csv")
 sample2=sample2.to_csv(index=False)  
 b64 = base64.b64encode(sample2.encode('utf-8-sig')).decode()
-href = f'<a href="data:application/octet-stream;base64,{b64}" download="Asahi Hai Futurity Stakes 2022.csv">Asahi Hai Futurity Stakes 2022</a>'
+href = f'<a href="data:application/octet-stream;base64,{b64}" download="Arima Kinen (Grand Prix) 2022.csv">Arima Kinen (Grand Prix) 2022</a>'
 st.sidebar.markdown(f"{href}", unsafe_allow_html=True)
 
 horse_all=pd.read_csv("Horse_Race.csv")
@@ -77,7 +77,7 @@ elif a=="該当レース":
   elif y=="朝日杯フューチュリティステークス":
     b="Asahi Hai Futurity Stakes"
   elif y=="有馬記念":
-    b="Arima Kinen (Grand Prix)"
+    b="Arima Kinen"
   this=horse_all[horse_all["Race"].str.contains(b)]
   X=this.drop(["Race","Restrict","Race_Grade","Dirt","Distance","Win","Quinella","Show"],axis=1)
   Y1=this["Win"]
