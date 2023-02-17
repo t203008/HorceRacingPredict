@@ -76,7 +76,7 @@ elif a=="該当レース":
   elif y=="有馬記念":
     b="Arima Kinen"
   elif y=="フェブラリーステークス":
-    b="February Stakes"
+    b="February"
   this=horse_all[horse_all["Race"].str.contains(b)]
   X=this.drop(["Race","Restrict","Race_Grade","Dirt","Distance","Win","Quinella","Show"],axis=1)
   Y1=this["Win"]
