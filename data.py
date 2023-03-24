@@ -25,7 +25,7 @@ st.sidebar.markdown("2023年高松宮記念　データ")
 sample2=pd.read_csv("Takamatsunomiya Kinen 2023.csv")
 sample2=sample2.to_csv(index=False)  
 b64 = base64.b64encode(sample2.encode('utf-8-sig')).decode()
-href = f'<a href="data:application/octet-stream;base64,{b64}" download="February Stakes 2023.csv">February Stakes 2023</a>'
+href = f'<a href="data:application/octet-stream;base64,{b64}" download="Takamatsunomiya Kinen 2023.csv">February Stakes 2023</a>'
 st.sidebar.markdown(f"{href}", unsafe_allow_html=True)
 
 horse_all=pd.read_csv("Horse_Race.csv")
