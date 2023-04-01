@@ -22,10 +22,10 @@ st.sidebar.markdown("入力例")
 image=Image.open("スクリーンショット (506).png")
 st.sidebar.image(image,caption="サイレンススズカの天皇賞(秋)に出る際の確率を調べたいとき",use_column_width=True)
 st.sidebar.markdown("2023年高松宮記念　データ")
-sample2=pd.read_csv("Takamatsunomiya Kinen 2023.csv")
+sample2=pd.read_csv("Osaka Hai 2023.csv")
 sample2=sample2.to_csv(index=False)  
 b64 = base64.b64encode(sample2.encode('utf-8-sig')).decode()
-href = f'<a href="data:application/octet-stream;base64,{b64}" download="Takamatsunomiya Kinen 2023.csv">Takamatsunomiya Kinen 2023</a>'
+href = f'<a href="data:application/octet-stream;base64,{b64}" download="Osaka Hai 2023.csv">Osaka Hai 2023</a>'
 st.sidebar.markdown(f"{href}", unsafe_allow_html=True)
 
 horse_all=pd.read_csv("Horse_Race.csv")
