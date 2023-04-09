@@ -119,10 +119,10 @@ if pred is not None:
   predic=predic.drop(index=predic.index[[0]])
   predic=predic.fillna(0)
   #st.dataframe(predic)
-  st.write(predic)
   for i in sub:
     if i not in ["Horse","Race","frame"]:
       predic[i]=predic[i].astype(float,errors="raise")
+  st.dataframe(predic)
   predic["rank_and_class"]=predic["P_rank"]*predic["P_class_Class"]
   predic["pop_and_class"]=predic["P_popular"]*predic["P_class_Class"]
   #predic["pop_rank_class"]=predic["P_popular"]*predic["P_class_Class"]*predic["P_rank"]
