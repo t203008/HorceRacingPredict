@@ -29,6 +29,7 @@ href = f'<a href="data:application/octet-stream;base64,{b64}" download="Oka Sho 
 st.sidebar.markdown(f"{href}", unsafe_allow_html=True)
 
 horse_all=pd.read_csv("Horse_Race.csv")
+horse_all= pd.get_dummies(horse_all, columns = ['Frame'])
 horse_all=horse_all.fillna(0)
 horse_all["rank_and_class"]=horse_all["P_rank"]*horse_all["P_class_Class"]
 horse_all["pop_and_class"]=horse_all["P_popular"]*horse_all["P_class_Class"]
