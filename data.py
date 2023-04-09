@@ -118,13 +118,13 @@ if pred is not None:
   predic=pd.read_csv(pred,names=sub,dtype={"Frame": str})
   predic=predic.drop(index=predic.index[[0]])
   predic=predic.fillna(0)
-  #st.dataframe(predic)
+  st.dataframe(predic)
   for i in sub:
     if i not in ["Horse","Race","Frame"]:
       predic[i]=predic[i].astype(float,errors="raise")
   predic=pd.get_dummies(predic,columns=['Frame'])
-  st.dataframe(predic)
-  st.dataframe(Z)
+  #st.dataframe(predic)
+  #st.dataframe(Z)
   predic["rank_and_class"]=predic["P_rank"]*predic["P_class_Class"]
   predic["pop_and_class"]=predic["P_popular"]*predic["P_class_Class"]
   #predic["pop_rank_class"]=predic["P_popular"]*predic["P_class_Class"]*predic["P_rank"]
