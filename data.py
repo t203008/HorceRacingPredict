@@ -120,6 +120,7 @@ if pred is not None:
   predic=predic.fillna(0)
   #st.dataframe(predic)
   for i in sub:
+    st.write(i)
     if i not in ["Horse","Race","frame"]:
       predic[i]=predic[i].astype(float,errors="raise")
   st.dataframe(predic)
