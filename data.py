@@ -49,6 +49,8 @@ elif year=="3歳馬限定":
   horse_all=horse_all[(horse_all["Restrict"]==3)]
 elif year=="全年齢":
   horse_all=horse_all[(horse_all["Restrict"]==0)]
+
+waku=st.radio(label="枠順を予想に入れますか",options=("入れる","入れない"),index=0,horizontal=True)
   
 a=st.radio("データ選択", ("全レース", "レース賞別", "該当レース")) 
 
@@ -130,15 +132,27 @@ if pred is not None:
   #predic["pop_rank_class"]=predic["P_popular"]*predic["P_class_Class"]*predic["P_rank"]
   
   #st.dataframe(predic) 
-  st.header("予測される確率") 
-  logistic1 = smf.glm(formula = "Win ~ 1+Age+Frame_one+Frame_two+Frame_three+Frame_four+Frame_five+Frame_six+Frame_seven+Frame_eight+Mare+Stallion+P_rank+P_popular+Jockey_change+Change_from_P_Grass+Change_from_P_Dirt+Change_from_P_Hurdle+P_class_Class+Weight_P_Weight+Distance_P_distance+Week_distance+P_overseas+P_rank*P_popular*P_class_Class",
+  st.header("予測される確率")
+  if waku=="入れる":
+    
+    logistic1 = smf.glm(formula = "Win ~ 1+Age+Frame_one+Frame_two+Frame_three+Frame_four+Frame_five+Frame_six+Frame_seven+Frame_eight+Mare+Stallion+P_rank+P_popular+Jockey_change+Change_from_P_Grass+Change_from_P_Dirt+Change_from_P_Hurdle+P_class_Class+Weight_P_Weight+Distance_P_distance+Week_distance+P_overseas+P_rank*P_popular*P_class_Class",
                    data = Z ,
                    family = sm.families.Binomial()).fit()
-  logistic2 = smf.glm(formula = "Quinella ~ 1+Age+Frame_one+Frame_two+Frame_three+Frame_four+Frame_five+Frame_six+Frame_seven+Frame_eight+Mare+Stallion+P_rank+P_popular+Jockey_change+Change_from_P_Grass+Change_from_P_Dirt+Change_from_P_Hurdle+P_class_Class+Weight_P_Weight+Distance_P_distance+Week_distance+P_overseas+P_rank*P_popular*P_class_Class",
+    logistic2 = smf.glm(formula = "Quinella ~ 1+Age+Frame_one+Frame_two+Frame_three+Frame_four+Frame_five+Frame_six+Frame_seven+Frame_eight+Mare+Stallion+P_rank+P_popular+Jockey_change+Change_from_P_Grass+Change_from_P_Dirt+Change_from_P_Hurdle+P_class_Class+Weight_P_Weight+Distance_P_distance+Week_distance+P_overseas+P_rank*P_popular*P_class_Class",
                    data = Z ,
                    family = sm.families.Binomial()).fit()
-  logistic3 = smf.glm(formula = "Show ~ 1+Age+Frame_one+Frame_two+Frame_three+Frame_four+Frame_five+Frame_six+Frame_seven+Frame_eight+Mare+Stallion+P_rank+P_popular+Jockey_change+Change_from_P_Grass+Change_from_P_Dirt+Change_from_P_Hurdle+P_class_Class+Weight_P_Weight+Distance_P_distance+Week_distance+P_overseas+P_rank*P_popular*P_class_Class",
+    logistic3 = smf.glm(formula = "Show ~ 1+Age+Frame_one+Frame_two+Frame_three+Frame_four+Frame_five+Frame_six+Frame_seven+Frame_eight+Mare+Stallion+P_rank+P_popular+Jockey_change+Change_from_P_Grass+Change_from_P_Dirt+Change_from_P_Hurdle+P_class_Class+Weight_P_Weight+Distance_P_distance+Week_distance+P_overseas+P_rank*P_popular*P_class_Class",
                    data = Z ,
+                   family = sm.families.Binomial()).fit()
+  elif waku="入れない":
+    
+    logistic1 = smf.glm(formula = "Win ~ 1+Age+Mare+Stallion+P_rank+P_popular+Jockey_change+Change_from_P_Grass+Change_from_P_Dirt+Change_from_P_Hurdle+P_class_Class+Weight_P_Weight+Distance_P_distance+Week_distance+P_overseas+P_rank*P_popular*P_class_Class",
+                   data = Z ,
+                   family = sm.families.Binomial()).fit()
+    logistic2 = smf.glm(formula = "Quinella ~ 1+Age+Mare+Stallion+P_rank+P_popular+Jockey_change+Change_from_P_Grass+Change_from_P_Dirt+Change_from_P_Hurdle+P_class_Class+Weight_P_Weight+Distance_P_distance+Week_distance+P_overseas+P_rank*P_popular*P_class_Class",
+                   data = Z ,
+                   family = sm.families.Binomial()).fit()
+    logistic3 = smf.glm(formula = "Show ~ 1+Age+Mare+Stallion+P_rank+P_popular+Jockey_change+Change_from_P_Grass+Change_from_P_Dirt+Change_from_P_Hurdle+P_class_Class+Weight_P_Weight+Distance_P_distance+Week_distance+P_overseas+P_rank*P_popular*P_class_Class",
                    family = sm.families.Binomial()).fit()
   
   predic1=logistic1.predict(predic)
