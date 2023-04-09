@@ -119,6 +119,7 @@ if pred is not None:
   predic=predic.drop(index=predic.index[[0]])
   predic=predic.fillna(0)
   #st.dataframe(predic)
+  st.write(sub)
   for i in sub:
     st.write(i)
     if i not in ["Horse","Race","frame"]:
