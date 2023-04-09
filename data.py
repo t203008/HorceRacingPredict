@@ -29,7 +29,6 @@ href = f'<a href="data:application/octet-stream;base64,{b64}" download="Oka Sho 
 st.sidebar.markdown(f"{href}", unsafe_allow_html=True)
 
 horse_all=pd.read_csv("Horse_Race.csv")
-horse_all= pd.get_dummies(horse_all, columns = ['Frame'])
 horse_all=horse_all.fillna(0)
 horse_all["rank_and_class"]=horse_all["P_rank"]*horse_all["P_class_Class"]
 horse_all["pop_and_class"]=horse_all["P_popular"]*horse_all["P_class_Class"]
@@ -55,11 +54,11 @@ a=st.radio("データ選択", ("全レース", "レース賞別", "該当レー�
 
 
 if a=="全レース":
-  X=horse_all.drop(["Race","Restrict","Mare Limited","Race_Grade","Dirt","Distance","Course","Win","Quinella","Show"],axis=1)
   Y1=horse_all["Win"]
   Y2=horse_all["Quinella"]
   Y3=horse_all["Show"]
-  Z=horse_all
+  Z=pd.get_dummies(horse_all,columns=['Frame'])
+  X=Z.drop(["Race","Restrict","Mare Limited","Race_Grade","Dirt","Distance","Course","Win","Quinella","Show"],axis=1)
 elif a=="該当レース":
   y=st.selectbox("レース選択",("フェブラリーステークス","高松宮記念","大阪杯","桜花賞","エリザベス女王杯","マイルチャンピオンシップ","ジャパンカップ","チャンピオンズカップ","阪神ジュベナイルフィリーズ","朝日杯フューチュリティステークス","有馬記念"))
   if y=="エリザベス女王杯":
