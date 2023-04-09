@@ -84,20 +84,20 @@ elif a=="該当レース":
   elif y=="桜花賞":
     b="Oka Sho"
   this=horse_all[horse_all["Race"].str.contains(b)]
-  X=this.drop(["Race","Restrict","Mare Limited","Race_Grade","Dirt","Distance","Course","Win","Quinella","Show"],axis=1)
   Y1=this["Win"]
   Y2=this["Quinella"]
   Y3=this["Show"]
-  Z=this
+  Z=pd.get_dummies(horse_all,columns=['Frame'])
+  X=Z.drop(["Race","Restrict","Mare Limited","Race_Grade","Dirt","Distance","Course","Win","Quinella","Show"],axis=1)
 elif a=="レース賞別":
   y=st.selectbox("レース賞選択",("G1","G2","G3"))
   y=int(y.replace("G",""))
   grade=horse_all[(horse_all["Race_Grade"]==y)]
-  X=grade.drop(["Race","Restrict","Mare Limited","Race_Grade","Dirt","Distance","Course","Win","Quinella","Show"],axis=1)
   Y1=grade["Win"]
   Y2=grade["Quinella"]
   Y3=grade["Show"]
-  Z=grade
+  Z=pd.get_dummies(horse_all,columns=['Frame'])
+  X=Z.drop(["Race","Restrict","Mare Limited","Race_Grade","Dirt","Distance","Course","Win","Quinella","Show"],axis=1)
 st.write("次に画面左上からサイドバーを開いてください")
 #st.write("未実装です")
 #st.write(Z)
