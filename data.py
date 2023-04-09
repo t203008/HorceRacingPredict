@@ -144,7 +144,7 @@ if pred is not None:
     logistic3 = smf.glm(formula = "Show ~ 1+Age+Frame_one+Frame_two+Frame_three+Frame_four+Frame_five+Frame_six+Frame_seven+Frame_eight+Mare+Stallion+P_rank+P_popular+Jockey_change+Change_from_P_Grass+Change_from_P_Dirt+Change_from_P_Hurdle+P_class_Class+Weight_P_Weight+Distance_P_distance+Week_distance+P_overseas+P_rank*P_popular*P_class_Class",
                    data = Z ,
                    family = sm.families.Binomial()).fit()
-  elif waku="入れない":
+  elif waku=="入れない":
     
     logistic1 = smf.glm(formula = "Win ~ 1+Age+Mare+Stallion+P_rank+P_popular+Jockey_change+Change_from_P_Grass+Change_from_P_Dirt+Change_from_P_Hurdle+P_class_Class+Weight_P_Weight+Distance_P_distance+Week_distance+P_overseas+P_rank*P_popular*P_class_Class",
                    data = Z ,
