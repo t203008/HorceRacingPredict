@@ -117,12 +117,12 @@ if pred is not None:
   pred1=pred
   predic=pd.read_csv(pred,names=sub)
   predic=predic.drop(index=predic.index[[0]])
-  st.write(predic)
   predic=predic.fillna(0)
   #st.dataframe(predic)
   for i in sub:
     if i not in ["Horse","Race"]:
       predic[i]=predic[i].astype(float,errors="raise")
+  st.write(predic)
   predic["rank_and_class"]=predic["P_rank"]*predic["P_class_Class"]
   predic["pop_and_class"]=predic["P_popular"]*predic["P_class_Class"]
   #predic["pop_rank_class"]=predic["P_popular"]*predic["P_class_Class"]*predic["P_rank"]
