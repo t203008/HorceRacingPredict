@@ -41,7 +41,6 @@ if course=="ダート":
   horse_all=horse_all[(horse_all["Dirt"]==1)]
 elif course=="芝":
   horse_all=horse_all[(horse_all["Dirt"]==0)]
-
 year=st.radio(label="年齢限定レースに絞りますか",options=("2歳馬限定","3歳馬限定","全年齢","絞り込まない"),index=0,horizontal=True,)
 if year=="2歳馬限定":
   horse_all=horse_all[(horse_all["Restrict"]==2)]
