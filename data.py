@@ -88,7 +88,7 @@ elif a=="該当レース":
   Y1=this["Win"]
   Y2=this["Quinella"]
   Y3=this["Show"]
-  Z=pd.get_dummies(horse_all,columns=['Frame'])
+  Z=pd.get_dummies(this,columns=['Frame'])
   X=Z.drop(["Race","Restrict","Mare Limited","Race_Grade","Dirt","Distance","Course","Win","Quinella","Show"],axis=1)
 elif a=="レース賞別":
   y=st.selectbox("レース賞選択",("G1","G2","G3"))
@@ -97,7 +97,7 @@ elif a=="レース賞別":
   Y1=grade["Win"]
   Y2=grade["Quinella"]
   Y3=grade["Show"]
-  Z=pd.get_dummies(horse_all,columns=['Frame'])
+  Z=pd.get_dummies(grade,columns=['Frame'])
   X=Z.drop(["Race","Restrict","Mare Limited","Race_Grade","Dirt","Distance","Course","Win","Quinella","Show"],axis=1)
 st.write("次に画面左上からサイドバーを開いてください")
 #st.write("未実装です")
