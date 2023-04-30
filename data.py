@@ -21,11 +21,11 @@ st.sidebar.markdown(f"{href}", unsafe_allow_html=True)
 st.sidebar.markdown("入力例")
 image=Image.open("スクリーンショット (506).png")
 st.sidebar.image(image,caption="サイレンススズカの天皇賞(秋)に出る際の確率を調べたいとき",use_column_width=True)
-st.sidebar.markdown("2023年皐月賞　データ")
-sample2=pd.read_csv("Satsuki Sho (Japanese 2000 Guineas) 2023.csv")
+st.sidebar.markdown("2023年天皇賞（春）　データ")
+sample2=pd.read_csv("Tenno sho (spring) 2023.csv")
 sample2=sample2.to_csv(index=False)  
 b64 = base64.b64encode(sample2.encode('utf-8-sig')).decode()
-href = f'<a href="data:application/octet-stream;base64,{b64}" download="Satsuki Sho (Japanese 2000 Guineas) 2023.csv">Satsuki Sho (Japanese 2000 Guineas) 2023</a>'
+href = f'<a href="data:application/octet-stream;base64,{b64}" download="Tenno Sho (spring) 2023.csv">Tenno Sho (spring) 2023</a>'
 st.sidebar.markdown(f"{href}", unsafe_allow_html=True)
 
 horse_all=pd.read_csv("Horse_Race.csv")
