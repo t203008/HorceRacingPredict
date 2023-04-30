@@ -86,6 +86,8 @@ elif a=="該当レース":
     b="Oka Sho"
   elif y=="皐月賞":
     b="Satsuki Sho"
+  elif y=="天皇賞（春）":
+    b="Tenno Sho (Spring)"
   this=horse_all[horse_all["Race"].str.contains(b)]
   Y1=this["Win"]
   Y2=this["Quinella"]
