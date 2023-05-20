@@ -93,7 +93,7 @@ elif a=="該当レース":
   elif y=="ヴィクトリアマイル":
     b="Victoria Mile"
   elif y=="優駿牝馬（オークス）":
-    b="Yushun Himba (Japanese Oaks)"
+    b="Yushun Himba"
   this=horse_all[horse_all["Race"].str.contains(b)]
   Y1=this["Win"]
   Y2=this["Quinella"]
