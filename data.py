@@ -21,8 +21,8 @@ st.sidebar.markdown(f"{href}", unsafe_allow_html=True)
 st.sidebar.markdown("入力例")
 image=Image.open("スクリーンショット (506).png")
 st.sidebar.image(image,caption="サイレンススズカの天皇賞(秋)に出る際の確率を調べたいとき",use_column_width=True)
-st.sidebar.markdown("2023年優駿牝馬　データ")
-sample2=pd.read_csv("Yushun Himba (Japanese Oaks) 2023.csv")
+st.sidebar.markdown("2023年東京優駿　データ")
+sample2=pd.read_csv("Tokyo Yushun (Japanese Derby) 2023.csv")
 sample2=sample2.to_csv(index=False) 
 b64 = base64.b64encode(sample2.encode('utf-8-sig')).decode()
 href = f'<a href="data:application/octet-stream;base64,{b64}" download="Yushun Himba (Japanese Oaks) 2023.csv">Yushun Himba (Japanese Oaks) 2023</a>'
@@ -61,7 +61,7 @@ if a=="全レース":
   Z=pd.get_dummies(horse_all,columns=['Frame'])
   X=Z.drop(["Race","Restrict","Mare Limited","Race_Grade","Dirt","Distance","Course","Win","Quinella","Show"],axis=1)
 elif a=="該当レース":
-  y=st.selectbox("レース選択",("フェブラリーステークス","高松宮記念","大阪杯","桜花賞","皐月賞","天皇賞（春）","NHKマイルカップ","ヴィクトリアマイル","優駿牝馬（オークス）","エリザベス女王杯","マイルチャンピオンシップ","ジャパンカップ","チャンピオンズカップ","阪神ジュベナイルフィリーズ","朝日杯フューチュリティステークス","有馬記念"))
+  y=st.selectbox("レース選択",("フェブラリーステークス","高松宮記念","大阪杯","桜花賞","皐月賞","天皇賞（春）","NHKマイルカップ","ヴィクトリアマイル","優駿牝馬（オークス）","東京優駿（日本ダービー）","エリザベス女王杯","マイルチャンピオンシップ","ジャパンカップ","チャンピオンズカップ","阪神ジュベナイルフィリーズ","朝日杯フューチュリティステークス","有馬記念"))
   if y=="エリザベス女王杯":
     b="Queen Elizabeth II Cup"
   elif y=="マイルチャンピオンシップ":
@@ -94,6 +94,8 @@ elif a=="該当レース":
     b="Victoria Mile"
   elif y=="優駿牝馬（オークス）":
     b="Yushun Himba"
+  elif y=="東京優駿（日本ダービー）":
+    b="Tokyo　Yushun"
   this=horse_all[horse_all["Race"].str.contains(b)]
   Y1=this["Win"]
   Y2=this["Quinella"]
