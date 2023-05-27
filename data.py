@@ -25,7 +25,7 @@ st.sidebar.markdown("2023年東京優駿　データ")
 sample2=pd.read_csv("Tokyo Yushun (Japanese Derby) 2023.csv")
 sample2=sample2.to_csv(index=False) 
 b64 = base64.b64encode(sample2.encode('utf-8-sig')).decode()
-href = f'<a href="data:application/octet-stream;base64,{b64}" download="Yushun Himba (Japanese Oaks) 2023.csv">Yushun Himba (Japanese Oaks) 2023</a>'
+href = f'<a href="data:application/octet-stream;base64,{b64}" download="Tokyo Yushun (Japanese Derby) 2023.csv">Tokyo Yushun (Japanese Derby) 2023</a>'
 st.sidebar.markdown(f"{href}", unsafe_allow_html=True)
 
 horse_all=pd.read_csv("Horse_Race.csv")
