@@ -127,7 +127,8 @@ sub=list(horse_all.columns.values)
 dellist=["Race_Grade","Mare Limited","Restrict","Dirt","Distance","Course","Win","Quinella","Show","rank_and_class","pop_and_class"]
 for i in dellist:
   sub.remove(i)
-sub.insert(0,"Horse")
+sub.insert(0,"No.")
+sub.insert(1,"Horse")
 
 if pred is not None:
   pred1=pred
