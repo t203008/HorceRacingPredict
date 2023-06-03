@@ -32,6 +32,7 @@ horse_all=pd.read_csv("Horse_Race.csv")
 horse_all=horse_all.fillna(0)
 horse_all["rank_and_class"]=horse_all["P_rank"]*horse_all["P_class_Class"]
 horse_all["pop_and_class"]=horse_all["P_popular"]*horse_all["P_class_Class"]
+horse_all["pop_and_rank"]=horse_all["P_rank"]+horse_all["P_popular"]
 #horse_all["pop_rank_class"]=horse_all["P_popular"]*horse_all["P_class_Class"]*horse_all["P_rank"]
 
 
@@ -161,13 +162,13 @@ if pred is not None:
                    family = sm.families.Binomial()).fit()
   elif waku=="入れない":
     
-    logistic1 = smf.glm(formula = "Win ~ 1+Age+Mare+Stallion+P_rank+P_popular+Jockey_change+Change_from_P_Grass+Change_from_P_Dirt+Change_from_P_Hurdle+P_class_Class+Weight_P_Weight+Distance_P_distance+Week_distance+P_overseas+P_rank*P_popular*P_class_Class",
+    logistic1 = smf.glm(formula = "Win ~ 1+Age+Mare+Stallion+P_rank+P_popular+Jockey_change+Change_from_P_Grass+Change_from_P_Dirt+Change_from_P_Hurdle+P_class_Class+Weight_P_Weight+Distance_P_distance+Week_distance+P_overseas",
                    data = Z ,
                    family = sm.families.Binomial()).fit()
-    logistic2 = smf.glm(formula = "Quinella ~ 1+Age+Mare+Stallion+P_rank+P_popular+Jockey_change+Change_from_P_Grass+Change_from_P_Dirt+Change_from_P_Hurdle+P_class_Class+Weight_P_Weight+Distance_P_distance+Week_distance+P_overseas+P_rank*P_popular*P_class_Class",
+    logistic2 = smf.glm(formula = "Quinella ~ 1+Age+Mare+Stallion+P_rank+P_popular+Jockey_change+Change_from_P_Grass+Change_from_P_Dirt+Change_from_P_Hurdle+P_class_Class+Weight_P_Weight+Distance_P_distance+Week_distance+P_overseas",
                    data = Z ,
                    family = sm.families.Binomial()).fit()
-    logistic3 = smf.glm(formula = "Show ~ 1+Age+Mare+Stallion+P_rank+P_popular+Jockey_change+Change_from_P_Grass+Change_from_P_Dirt+Change_from_P_Hurdle+P_class_Class+Weight_P_Weight+Distance_P_distance+Week_distance+P_overseas+P_rank*P_popular*P_class_Class",
+    logistic3 = smf.glm(formula = "Show ~ 1+Age+Mare+Stallion+P_rank+P_popular+Jockey_change+Change_from_P_Grass+Change_from_P_Dirt+Change_from_P_Hurdle+P_class_Class+Weight_P_Weight+Distance_P_distance+Week_distance+P_overseas",
                    data=Z,
                    family = sm.families.Binomial()).fit()
   
