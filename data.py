@@ -145,8 +145,8 @@ if pred is not None:
   #predic["pop_and_class"]=predic["P_popular"]*predic["P_class_Class"]
   #predic["pop_rank_class"]=predic["P_popular"]*predic["P_class_Class"]*predic["P_rank"]
   
-  #st.dataframe(predic)
-  st.dataframe(Z)
+  st.dataframe(predic)
+  #st.dataframe(Z)
   st.header("予測される確率")
  
   if waku=="入れる":
