@@ -141,8 +141,8 @@ if pred is not None:
   predic=pd.get_dummies(predic,columns=['Frame'])
   #st.dataframe(predic)
   #st.dataframe(Z)
-  #predic["rank_and_class"]=predic["P_rank"]*predic["P_class_Class"]
-  #predic["pop_and_class"]=predic["P_popular"]*predic["P_class_Class"]
+  predic["rank_and_class"]=predic["P_rank"]*predic["P_class_Class"]
+  predic["pop_and_class"]=predic["P_popular"]*predic["P_class_Class"]
   #predic["pop_rank_class"]=predic["P_popular"]*predic["P_class_Class"]*predic["P_rank"]
   
   st.dataframe(predic)
