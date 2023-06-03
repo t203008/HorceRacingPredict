@@ -144,8 +144,9 @@ if pred is not None:
   predic["pop_and_class"]=predic["P_popular"]*predic["P_class_Class"]
   #predic["pop_rank_class"]=predic["P_popular"]*predic["P_class_Class"]*predic["P_rank"]
   
-  #st.dataframe(predic) 
+  st.dataframe(predic) 
   st.header("予測される確率")
+ 
   if waku=="入れる":
     
     logistic1 = smf.glm(formula = "Win ~ 1+Age+Frame_one+Frame_two+Frame_three+Frame_four+Frame_five+Frame_six+Frame_seven+Frame_eight+Mare+Stallion+P_rank+P_popular+Jockey_change+Change_from_P_Grass+Change_from_P_Dirt+Change_from_P_Hurdle+P_class_Class+Weight_P_Weight+Distance_P_distance+Week_distance+P_overseas+P_rank*P_popular*P_class_Class",
