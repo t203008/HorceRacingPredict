@@ -170,21 +170,21 @@ if pred is not None:
                    data = Z ,
                    family = sm.families.Binomial()).fit()
   elif waku=="入れない":
-    st.write("Hello")
     
-    logistic1 = smf.glm(formula = "Win ~ 1+Age+Mare+Stallion+P_rank+P_popular*P_popular+Jockey_change+Change_from_P_Grass+Change_from_P_Dirt+Change_from_P_Hurdle+P_class_Class+Weight_P_Weight+Distance_P_distance+Week_distance+P_overseas",
-                   data = Z ,
-                   family = sm.families.Binomial()).fit()
-    logistic2 = smf.glm(formula = "Quinella ~ 1+Age+Mare+Stallion+P_rank+P_popular*P_popular+P_popular+Jockey_change+Change_from_P_Grass+Change_from_P_Dirt+Change_from_P_Hurdle+P_class_Class+Weight_P_Weight+Distance_P_distance+Week_distance+P_overseas",
-                   data = Z ,
-                   family = sm.families.Binomial()).fit()
+#    logistic1 = smf.glm(formula = "Win ~ 1+Age+Mare+Stallion+P_rank+P_popular*P_popular+Jockey_change+Change_from_P_Grass+Change_from_P_Dirt+Change_from_P_Hurdle+P_class_Class+Weight_P_Weight+Distance_P_distance+Week_distance+P_overseas",
+#                   data = Z ,
+#                   family = sm.families.Binomial()).fit()
+#    logistic2 = smf.glm(formula = "Quinella ~ 1+Age+Mare+Stallion+P_rank+P_popular*P_popular+P_popular+Jockey_change+Change_from_P_Grass+Change_from_P_Dirt+Change_from_P_Hurdle+P_class_Class+Weight_P_Weight+Distance_P_distance+Week_distance+P_overseas",
+#                   data = Z ,
+#                   family = sm.families.Binomial()).fit()
     logistic3 = smf.glm(formula = "Show ~ 1+Age+Mare+Stallion+P_rank+P_popular*P_popular+P_popular+Jockey_change+Change_from_P_Grass+Change_from_P_Dirt+Change_from_P_Hurdle+P_class_Class+Weight_P_Weight+Distance_P_distance+Week_distance+P_overseas",
                    data=Z,
-                   family = sm.families.Binomial()).fit()
-  
-  predic1=logistic1.predict(predic)
-  predic2=logistic2.predict(predic)
+                   family = sm.families.Binomial()).fit() 
+#  predic1=logistic1.predict(predic)
+#  predic2=logistic2.predict(predic)
   predic3=logistic3.predict(predic)
+
+  st.write(predic3)
   pre=pd.concat([predic["Horse"],predic1,predic2,predic3],axis=1)
   pred=pre.rename(columns={"Horse":"馬名",0:"単勝率",1:"連対率",2:"複勝率"})
   L=["単勝率","連対率","複勝率"]
