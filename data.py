@@ -78,7 +78,7 @@ elif a=="該当レース":
   elif y=="有馬記念":
     b="Arima Kinen"
   elif y=="フェブラリーステークス":
-    b="Takamatsunomiya"
+    b="Fe"
   elif y=="高松宮記念":
     b="Takamatsunomiya"
   elif y=="大阪杯":
