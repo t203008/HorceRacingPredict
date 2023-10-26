@@ -170,6 +170,7 @@ if pred is not None:
                    data = Z ,
                    family = sm.families.Binomial()).fit()
   elif waku=="入れない":
+    st.write("Hello")
     
     logistic1 = smf.glm(formula = "Win ~ 1+Age+Mare+Stallion+P_rank+P_popular*P_popular+Jockey_change+Change_from_P_Grass+Change_from_P_Dirt+Change_from_P_Hurdle+P_class_Class+Weight_P_Weight+Distance_P_distance+Week_distance+P_overseas",
                    data = Z ,
@@ -182,8 +183,6 @@ if pred is not None:
                    family = sm.families.Binomial()).fit()
   
   predic1=logistic1.predict(predic)
-  st.write(predic1)
-#  predic1=[0,0,0,0,0,0,0,0,0,0,0]
   predic2=logistic2.predict(predic)
   predic3=logistic3.predict(predic)
   pre=pd.concat([predic["Horse"],predic1,predic2,predic3],axis=1)
