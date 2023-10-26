@@ -50,6 +50,12 @@ elif year=="3歳馬限定":
 elif year=="全年齢":
   horse_all=horse_all[(horse_all["Restrict"]==0)]
 
+disdis=st.radio("距離を検索に入れますか",("はい","いいえ"),index=0,horizontal=True,)
+if disdis=="はい":
+  disdisdis=st.number_input("距離を教えてください",0,5000)
+  horse_all=horse_all[(horse_all["distance"]==disdisdis)]
+
+
 waku=st.radio(label="枠順を予想に入れますか",options=("入れる","入れない"),index=0,horizontal=True)
   
 a=st.radio("データ選択", ("全レース", "レース賞別", "該当レース")) 
