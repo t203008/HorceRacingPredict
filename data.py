@@ -88,7 +88,7 @@ elif a=="該当レース":
   elif y=="皐月賞":
     b="Satsuki Sho"
   elif y=="天皇賞（春）":
-    b="Tenno Sho (Spring)"
+    b="Tenno Sho Spring"
   elif y=="NHKマイルカップ":
     b="NHK Mile Cup"
   elif y=="ヴィクトリアマイル":
