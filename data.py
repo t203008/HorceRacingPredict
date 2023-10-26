@@ -170,6 +170,8 @@ if pred is not None:
                    data = Z ,
                    family = sm.families.Binomial()).fit()
   elif waku=="入れない":
+
+    st.write(Z)
     
     logistic1 = smf.glm(formula = "Win ~ 1+Age+Mare+Stallion+P_rank+P_popular*P_popular+Jockey_change+Change_from_P_Grass+Change_from_P_Dirt+Change_from_P_Hurdle+P_class_Class+Weight_P_Weight+Distance_P_distance+Week_distance+P_overseas",
                    data = Z ,
