@@ -114,7 +114,7 @@ elif a=="該当レース":
   elif y=="天皇賞（秋）":
     b="Autumn"
   elif y=="中日新聞杯":
-    b="Chunichi"
+    b="Chunichi Shimbun"
   elif y=="カペラステークス":
     b="Capella"
   this=horse_all[horse_all["Race"].str.contains(b)]
