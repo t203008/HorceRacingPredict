@@ -197,13 +197,13 @@ if pred is not None:
 
     st.write(Z)
     
-    logistic1 = smf.glm(formula = "Win ~ 1+Age+Mare+Stallion+P_rank+P_popular*P_popular+P_popular+P_restrict+P_marelimit+Jockey_change+Change_from_P_Grass+Change_from_P_Dirt+Change_from_P_Hurdle+P_class_Class+Weight_P_Weight+Distance_P_distance+Week_distance+P_overseas",
+    logistic1 = smf.glm(formula = "Win ~ 1+Age+Mare+Stallion+P_rank+P_popular*P_popular+P_popular+Jockey_change+Change_from_P_Grass+Change_from_P_Dirt+Change_from_P_Hurdle+P_class_Class+Weight_P_Weight+Distance_P_distance+Week_distance+P_overseas",#+P_restrict+P_marelimit",
                    data = Z ,
                    family = sm.families.Binomial()).fit()
-    logistic2 = smf.glm(formula = "Quinella ~ 1+Age+Mare+Stallion+P_rank+P_popular*P_popular+P_popular+P_restrict+P_marelimit+Jockey_change+Change_from_P_Grass+Change_from_P_Dirt+Change_from_P_Hurdle+P_class_Class+Weight_P_Weight+Distance_P_distance+Week_distance+P_overseas",
+    logistic2 = smf.glm(formula = "Quinella ~ 1+Age+Mare+Stallion+P_rank+P_popular*P_popular+P_popular+Jockey_change+Change_from_P_Grass+Change_from_P_Dirt+Change_from_P_Hurdle+P_class_Class+Weight_P_Weight+Distance_P_distance+Week_distance+P_overseas",#+P_restrict+P_marelimit",",
                    data = Z ,
                    family = sm.families.Binomial()).fit()
-    logistic3 = smf.glm(formula = "Show ~ 1+Age+Mare+Stallion+P_rank+P_popular*P_popular+P_popular+P_restrict+P_marelimit+Jockey_change+Change_from_P_Grass+Change_from_P_Dirt+Change_from_P_Hurdle+P_class_Class+Weight_P_Weight+Distance_P_distance+Week_distance+P_overseas",
+    logistic3 = smf.glm(formula = "Show ~ 1+Age+Mare+Stallion+P_rank+P_popular*P_popular+P_popular+Jockey_change+Change_from_P_Grass+Change_from_P_Dirt+Change_from_P_Hurdle+P_class_Class+Weight_P_Weight+Distance_P_distance+Week_distance+P_overseas",#+P_restrict+P_marelimit",",
                    data=Z,
                    family = sm.families.Binomial()).fit() 
   predic1=logistic1.predict(predic)
