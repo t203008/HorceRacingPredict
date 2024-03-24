@@ -210,7 +210,7 @@ st.sidebar.markdown("1で作成したcsvファイルをドラッグ&ドロップ
 pred=st.sidebar.file_uploader("CSVファイルをドラッグ&ドロップ", type='csv', key='train')
 
 sub=list(horse_all.columns.values)
-dellist=["Race_Grade","Dirt","Distance","Course","Win","Quinella","Show","rank_and_class","pop_and_class"]
+dellist=["Race_Grade","Restrict","Mare Limited","Dirt","Distance","Course","Win","Quinella","Show","rank_and_class","pop_and_class"]
 for i in dellist:
   sub.remove(i)
 sub.insert(0,"No.")
