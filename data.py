@@ -221,7 +221,7 @@ if pred is not None:
   predic=pd.read_csv(pred,names=sub)
   predic=predic.drop(index=predic.index[[0]])
   predic=predic.fillna(0)
-  #st.dataframe(predic)
+  st.dataframe(predic)
   for i in sub:
     if i not in ["Horse","Race","Frame"]:
       predic[i]=predic[i].astype(float,errors="raise")
