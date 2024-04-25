@@ -28,7 +28,7 @@ b64 = base64.b64encode(sample2.encode('utf-8-sig')).decode()
 href = f'<a href="data:application/octet-stream;base64,{b64}" download="Takaraduka Kinen 2023.csv">Takaraduka Kinen 2023</a>'
 st.sidebar.markdown(f"{href}", unsafe_allow_html=True)
 
-horse_all=pd.read_csv("Horse_Race.csv")
+horse_all=pd.read_csv("Horse_Race - Horse_Race.csv")
 horse_all=horse_all.fillna(0)
 horse_all["rank_and_class"]=horse_all["P_rank"]*horse_all["P_class_Class"]
 horse_all["pop_and_class"]=horse_all["P_popular"]*horse_all["P_class_Class"]
