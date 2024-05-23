@@ -166,7 +166,7 @@ elif a=="該当レース":
   elif y=="優駿牝馬（オークス）":
     b="Yushun Himba"
   elif y=="東京優駿（日本ダービー）":
-    b="Tokyo Yushun (Japanese Derby)"
+    b="Tokyo"
   elif y=="安田記念":
     b="Yasuda Kinen"
   elif y=="宝塚記念":
